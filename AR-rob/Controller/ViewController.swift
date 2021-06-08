@@ -12,21 +12,26 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var guidanceView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guidanceView.layer.cornerRadius = 24.5
         // Set the view's delegate
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.tintColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,18 +62,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 */
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        
+        let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let onboardView = onboardStoryboard.instantiateViewController(identifier: "onboardView") as! OnboardViewController
+        
+        onboardView.modalPresentationStyle = .fullScreen
+        self.present(onboardView, animated: true, completion: nil)
+        
         
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
 }
