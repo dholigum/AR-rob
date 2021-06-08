@@ -13,10 +13,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var guidanceView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guidanceView.layer.cornerRadius = 24.5
         // Set the view's delegate
         sceneView.delegate = self
         
