@@ -24,21 +24,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        sceneView.automaticallyUpdatesLighting = true
         
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.tintColor = .white
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        let configuration = ARImageTrackingConfiguration()
+        
+        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "Pokemon Cards", bundle: Bundle.main) {
+            
+            configuration.trackingImages = imageToTrack
+            configuration.maximumNumberOfTrackedImages = 8
+            print("Images Successfully Added")
+            
+        }
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -53,14 +58,85 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        
         let node = SCNNode()
-     
+        
+        if let imageAnchor = anchor as? ARImageAnchor {
+            
+            if imageAnchor.referenceImage.name == "eevee" {
+                
+                if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
+                    
+                    let planeNodeEevee = generatePlane(imageAnchor)
+                    
+                    if let pokeNode = pokeScene.rootNode.childNodes.first {
+                        
+                        pokeNode.eulerAngles.x = .pi/2
+                        
+                        planeNodeEevee.addChildNode(pokeNode)
+                        
+                        node.addChildNode(planeNodeEevee)
+                    }
+                }
+            }
+            
+            if imageAnchor.referenceImage.name == "oddish" {
+
+                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
+                    
+                    let planeNodeOddish = generatePlane(imageAnchor)
+
+                    if let pokeNode = pokeScene.rootNode.childNodes.first {
+
+                        pokeNode.eulerAngles.x = .pi/2
+
+                        planeNodeOddish.addChildNode(pokeNode)
+                        
+                        node.addChildNode(planeNodeOddish)
+                    }
+                }
+            }
+
+            if imageAnchor.referenceImage.name == "mdri" {
+                
+                let planeNodeMdri = generatePlane(imageAnchor)
+
+                let sphere = SCNSphere(radius: 0.03)
+                sphere.firstMaterial?.diffuse.contents = UIColor.blue
+
+                let sphereNode = SCNNode(geometry: sphere)
+                sphereNode.position = SCNVector3(0, 0, 0.03)
+
+                planeNodeMdri.addChildNode(sphereNode)
+                
+                node.addChildNode(planeNodeMdri)
+
+            }
+            
+            if imageAnchor.referenceImage.name == "kateem" {
+                
+                let planeNodeKTM = generatePlane(imageAnchor)
+
+                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+                        
+                let material = SCNMaterial()
+                material.diffuse.contents = UIColor.red
+                        
+                box.materials = [material]
+                        
+                let boxNode = SCNNode(geometry: box)
+                boxNode.position = SCNVector3(0, 0, 0.03)
+
+                planeNodeKTM.addChildNode(boxNode)
+                
+                node.addChildNode(planeNodeKTM)
+
+            }
+        }
+        
         return node
     }
-*/
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
@@ -69,8 +145,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         onboardView.modalPresentationStyle = .fullScreen
         self.present(onboardView, animated: true, completion: nil)
+
+    }
+    
+    func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.25, height: imageAnchor.referenceImage.physicalSize.height * 1.25)
         
+        plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.8)
+        
+        let planeNode = SCNNode(geometry: plane)
+        
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        return planeNode
     }
     
 }
