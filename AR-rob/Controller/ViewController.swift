@@ -28,6 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.tintColor = .white
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
