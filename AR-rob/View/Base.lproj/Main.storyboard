@@ -63,7 +63,6 @@
                     <connections>
                         <outlet property="backButton" destination="SW3-a4-q5G" id="XQN-Nb-clQ"/>
                         <outlet property="guidanceView" destination="tnG-ba-qKY" id="r1L-UC-mWw"/>
-                        <outlet property="guidenceView" destination="tnG-ba-qKY" id="O2m-qG-fmn"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>
