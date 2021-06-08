@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C302266F22A600F10A62 /* OnboardViewController.swift */; };
+		2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C304266F28E000F10A62 /* InstructionViewController.swift */; };
 		2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964344266F1032005D9B32 /* AppDelegate.swift */; };
 		2F964347266F1032005D9B32 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F964346266F1032005D9B32 /* art.scnassets */; };
 		2F964349266F1032005D9B32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964348266F1032005D9B32 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2F54C302266F22A600F10A62 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		2F54C304266F28E000F10A62 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		2F964341266F1032005D9B32 /* AR-rob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-rob.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F964344266F1032005D9B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F964346266F1032005D9B32 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				2F964348266F1032005D9B32 /* ViewController.swift */,
 				2F54C302266F22A600F10A62 /* OnboardViewController.swift */,
+				2F54C304266F28E000F10A62 /* InstructionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				2F964349266F1032005D9B32 /* ViewController.swift in Sources */,
 				2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */,
 				2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */,
+				2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

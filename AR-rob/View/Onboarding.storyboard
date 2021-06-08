@@ -31,6 +31,14 @@
                                     <action selector="toMainARPage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aaD-AT-EaA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTv-tu-CMY">
+                                <rect key="frame" x="170" y="523" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Instruction"/>
+                                <connections>
+                                    <action selector="toInstructionPage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2lo-vI-dEk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

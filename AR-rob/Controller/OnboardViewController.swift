@@ -23,4 +23,15 @@ class OnboardViewController: UIViewController {
         MainARView.modalPresentationStyle = .fullScreen
         self.present(MainARView, animated: true, completion: nil)
     }
+    
+    @IBAction func toInstructionPage(_ sender: UIButton) {
+        
+        let InstructionStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
+        let InstructionView = InstructionStoryboard.instantiateViewController(identifier: "instructionView")
+        
+        InstructionView.modalPresentationStyle = .fullScreen
+        self.present(InstructionView, animated: true, completion: nil)
+        
+    }
+    
 }
