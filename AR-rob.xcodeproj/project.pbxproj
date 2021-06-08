@@ -13,6 +13,8 @@
 		2F96434C266F1032005D9B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96434A266F1032005D9B32 /* Main.storyboard */; };
 		2F96434E266F1033005D9B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F96434D266F1033005D9B32 /* Assets.xcassets */; };
 		2F964351266F1033005D9B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96434F266F1033005D9B32 /* LaunchScreen.storyboard */; };
+		2F96435C266F197D005D9B32 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435B266F197D005D9B32 /* Onboarding.storyboard */; };
+		2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435D266F198D005D9B32 /* Instruction.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2F96434D266F1033005D9B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F964350266F1033005D9B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F964352266F1033005D9B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F96435B266F197D005D9B32 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		2F96435D266F198D005D9B32 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		2F964343266F1032005D9B32 /* AR-rob */ = {
 			isa = PBXGroup;
 			children = (
+				2F96435A266F18CB005D9B32 /* Model */,
+				2F964359266F18C5005D9B32 /* View */,
+				2F964358266F185F005D9B32 /* Controller */,
 				2F964344266F1032005D9B32 /* AppDelegate.swift */,
 				2F964346266F1032005D9B32 /* art.scnassets */,
-				2F964348266F1032005D9B32 /* ViewController.swift */,
-				2F96434A266F1032005D9B32 /* Main.storyboard */,
 				2F96434D266F1033005D9B32 /* Assets.xcassets */,
-				2F96434F266F1033005D9B32 /* LaunchScreen.storyboard */,
 				2F964352266F1033005D9B32 /* Info.plist */,
 			);
 			path = "AR-rob";
+			sourceTree = "<group>";
+		};
+		2F964358266F185F005D9B32 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F964348266F1032005D9B32 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2F964359266F18C5005D9B32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F96434A266F1032005D9B32 /* Main.storyboard */,
+				2F96434F266F1033005D9B32 /* LaunchScreen.storyboard */,
+				2F96435B266F197D005D9B32 /* Onboarding.storyboard */,
+				2F96435D266F198D005D9B32 /* Instruction.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F96435A266F18CB005D9B32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F964347266F1032005D9B32 /* art.scnassets in Resources */,
+				2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */,
+				2F96435C266F197D005D9B32 /* Onboarding.storyboard in Resources */,
 				2F964351266F1033005D9B32 /* LaunchScreen.storyboard in Resources */,
 				2F96434E266F1033005D9B32 /* Assets.xcassets in Resources */,
 				2F96434C266F1032005D9B32 /* Main.storyboard in Resources */,
