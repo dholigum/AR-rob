@@ -27,12 +27,21 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        print("Kena")
+        
         var contactNode: SCNNode!
-        if contact.nodeA.name == "glucose" || contact.nodeA.name == "glucoseMachine" {
+//        if contact.nodeA.name == "glucose" {
+//            contactNode = contact.nodeB
+//            print("masuk")
+//        }
+//        else {
+//            contactNode = contact.nodeA
+//        }
+        
+        switch contact.nodeA.name {
+        case "glucose":
             contactNode = contact.nodeB
-        }
-        else {
+        case "glucoseMachine": contactNode = contact.nodeB
+        default:
             contactNode = contact.nodeA
         }
         
@@ -43,6 +52,10 @@ extension ViewController: SCNPhysicsContactDelegate {
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.red
         self.lastNode.geometry?.materials = [material]
+        print("\(contact.nodeA.name) = \(contact.nodeB.name)")
+//        var child: SCNNode!
+//        child = lastNode.childNode(withName: "glc", recursively: false)
+//        child.geometry?.materials = [material]
     }
 
     func setAttackerPhysics(node: SCNNode, name: String, attacker: Int, target: Int) {

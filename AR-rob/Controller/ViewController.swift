@@ -75,7 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
                         
                         pokeNode.eulerAngles.x = .pi/2
-                        
+//                        pokeNode.name = "glc"
                         planeNodeEevee.addChildNode(pokeNode)
                         
                         node.addChildNode(planeNodeEevee)
@@ -87,7 +87,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let planeNodeOddish = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeOddish, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-                setAttackerPhysics(node: planeNodeOddish, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
+//                setAttackerPhysics(node: planeNodeOddish, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
 
                 if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
 
