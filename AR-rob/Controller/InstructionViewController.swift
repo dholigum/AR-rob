@@ -29,5 +29,21 @@ class InstructionViewController: UIViewController {
         self.present(onboardView, animated: true, completion: nil)
     }
     
+    @IBAction func gotItButtonPressed(_ sender: UIButton) {
+        
+        // Change to false user defaults value
+        
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isNotFirstApp")
+        
+        // Navigate to AR Page
+        
+        let MainARStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let MainARView = MainARStoryboard.instantiateViewController(identifier: "mainARView")
+        
+        MainARView.modalPresentationStyle = .fullScreen
+        self.present(MainARView, animated: true, completion: nil)
 
+    }
+    
 }
