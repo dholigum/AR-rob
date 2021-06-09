@@ -29,33 +29,31 @@ extension ViewController: SCNPhysicsContactDelegate {
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
         
         var contactNode: SCNNode!
-//        if contact.nodeA.name == "glucose" {
-//            contactNode = contact.nodeB
-//            print("masuk")
-//        }
-//        else {
-//            contactNode = contact.nodeA
-//        }
         
-        switch contact.nodeA.name {
-        case "glucose":
-            contactNode = contact.nodeB
-        case "glucoseMachine": contactNode = contact.nodeB
+        switch contact.nodeA.physicsBody?.categoryBitMask {
+        case BodyType.Glucose.rawValue, BodyType.GlucoseMachine.rawValue:
+            
+            
+            if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
+                contactNode = contact.nodeB
+            }
+            else {
+                contactNode = contact.nodeA
+            }
+            
         default:
             contactNode = contact.nodeA
         }
-        
         if self.lastNode != nil && self.lastNode == contactNode {
             return
         }
         self.lastNode = contactNode
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
-        self.lastNode.geometry?.materials = [material]
-        print("\(contact.nodeA.name) = \(contact.nodeB.name)")
-//        var child: SCNNode!
-//        child = lastNode.childNode(withName: "glc", recursively: false)
-//        child.geometry?.materials = [material]
+        material.diffuse.contents = UIColor.yellow
+//        self.lastNode.geometry?.materials = [material]
+        var child: SCNNode!
+        child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
+        child.geometry?.materials = [material]
     }
 
     func setAttackerPhysics(node: SCNNode, name: String, attacker: Int, target: Int) {

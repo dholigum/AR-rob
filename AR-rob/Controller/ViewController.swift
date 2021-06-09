@@ -74,8 +74,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
                         
-                        pokeNode.eulerAngles.x = .pi/2
-//                        pokeNode.name = "glc"
+                        pokeNode.eulerAngles.x = .pi/4
                         planeNodeEevee.addChildNode(pokeNode)
                         
                         node.addChildNode(planeNodeEevee)
@@ -83,45 +82,47 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             
-            if imageAnchor.referenceImage.name == "oddish" {
-                
-                let planeNodeOddish = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeOddish, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-//                setAttackerPhysics(node: planeNodeOddish, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
-
-                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
-
-                    if let pokeNode = pokeScene.rootNode.childNodes.first {
-
-                        pokeNode.eulerAngles.x = .pi/2
-
-                        planeNodeOddish.addChildNode(pokeNode)
-                        
-                        node.addChildNode(planeNodeOddish)
-                    }
-                }
-            }
+            
 
             if imageAnchor.referenceImage.name == "mdri" {
                 
                 let planeNodeMdri = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeMdri, name: "result", category: BodyType.Result.rawValue)
+                setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
+                setAttackerPhysics(node: planeNodeMdri, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
 
                 let sphere = SCNSphere(radius: 0.03)
                 sphere.firstMaterial?.diffuse.contents = UIColor.blue
 
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
-
+                sphereNode.name = "glucoseMachine"
                 planeNodeMdri.addChildNode(sphereNode)
                 
                 node.addChildNode(planeNodeMdri)
 
             }
             
+//            if imageAnchor.referenceImage.name == "oddish" {
+//
+//                let planeNodeOddish = generatePlane(imageAnchor)
+//
+//                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
+//
+//                    if let pokeNode = pokeScene.rootNode.childNodes.first {
+//
+//                        pokeNode.eulerAngles.x = .pi/2
+//
+//                        planeNodeOddish.addChildNode(pokeNode)
+//
+//                        node.addChildNode(planeNodeOddish)
+//                    }
+//                }
+//            }
+            
             if imageAnchor.referenceImage.name == "kateem" {
                 
                 let planeNodeKTM = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeKTM, name: "Result", category: BodyType.Result.rawValue)
 
                 let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
                         
@@ -155,13 +156,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.25, height: imageAnchor.referenceImage.physicalSize.height * 1.25)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.28, height: imageAnchor.referenceImage.physicalSize.height * 1.28)
         
-        plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.8)
+        plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0)
         
         let planeNode = SCNNode(geometry: plane)
-        
-        planeNode.eulerAngles.x = -.pi / 2
+        planeNode.eulerAngles.x = -.pi / 4
+        planeNode.position = SCNVector3(0, 0, -0.015)
         
         return planeNode
     }
