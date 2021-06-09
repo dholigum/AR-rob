@@ -15,6 +15,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var guidanceView: UIView!
     
+    var lastNode: SCNNode!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guidanceView.layer.cornerRadius = 24.5
@@ -66,9 +68,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "eevee" {
                 
+                let planeNodeEevee = generatePlane(imageAnchor)
+                setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
                 if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
-                    
-                    let planeNodeEevee = generatePlane(imageAnchor)
                     
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
                         
@@ -82,10 +84,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             if imageAnchor.referenceImage.name == "oddish" {
+                
+                let planeNodeOddish = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeOddish, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
+                setAttackerPhysics(node: planeNodeOddish, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
 
                 if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
-                    
-                    let planeNodeOddish = generatePlane(imageAnchor)
 
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
 
@@ -101,6 +105,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if imageAnchor.referenceImage.name == "mdri" {
                 
                 let planeNodeMdri = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeMdri, name: "result", category: BodyType.Result.rawValue)
 
                 let sphere = SCNSphere(radius: 0.03)
                 sphere.firstMaterial?.diffuse.contents = UIColor.blue
