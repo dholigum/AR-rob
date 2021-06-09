@@ -99,7 +99,7 @@
     <resources>
         <image name="homeBg" width="520" height="1125.3333740234375"/>
         <namedColor name="mainColor">
-            <color red="0.0" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.54500001668930054" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
