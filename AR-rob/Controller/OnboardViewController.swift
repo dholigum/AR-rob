@@ -9,10 +9,17 @@ import UIKit
 
 class OnboardViewController: UIViewController {
 
+    @IBOutlet weak var exploreButton: UIButton!
+    @IBOutlet weak var instructionButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        exploreButton.backgroundColor = UIColor(hexaString: "#008B74")
+        exploreButton.layer.cornerRadius = 29
+        exploreButton.tintColor = .white
+        
     }
     
     @IBAction func toMainARPage(_ sender: UIButton) {
