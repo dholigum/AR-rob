@@ -31,9 +31,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuX-b1-R7I">
-                                <rect key="frame" x="355" y="832" width="32" height="30"/>
+                                <rect key="frame" x="186" y="479" width="43" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Got It!"/>
+                                <connections>
+                                    <action selector="gotItButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="z56-Lu-Z6o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
