@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct CheatSheetMaterial {
+    
+    var materialName:String = ""
+    var materialDetail:String = ""
+    var materialImageName:String = ""
+    
+    func getMaterial() -> [CheatSheetMaterial] {
+        return []
+    }
+    
+}

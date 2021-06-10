@@ -44,6 +44,17 @@
                                     <constraint firstAttribute="bottom" secondItem="YBW-da-uKa" secondAttribute="bottom" constant="4" id="wla-cf-eYD"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gii-dv-V7w">
+                                <rect key="frame" x="161" y="782.66666666666663" width="69" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="chevron.up" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <segue destination="94V-WO-HSX" kind="showDetail" id="QBc-cv-hni"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,8 +81,17 @@
             </objects>
             <point key="canvasLocation" x="12.307692307692307" y="103.7914691943128"/>
         </scene>
+        <!--CheatSheet-->
+        <scene sceneID="lSa-jg-wUq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CheatSheet" id="94V-WO-HSX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Htg-D1-ORa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="269"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
