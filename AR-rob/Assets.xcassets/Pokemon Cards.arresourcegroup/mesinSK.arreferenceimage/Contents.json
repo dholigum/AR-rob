@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "Mesin krebs.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "centimeters",
+    "width" : 7.0050541516245488
+  }
+}
