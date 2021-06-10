@@ -66,7 +66,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "eevee" || imageAnchor.referenceImage.name == "glucose" {
+            if imageAnchor.referenceImage.name == "glucose" {
                 
                 let planeNodeEevee = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -82,45 +82,44 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             
-            
-
-            if imageAnchor.referenceImage.name == "mdri" || imageAnchor.referenceImage.name == "mesinGlukosa"{
+            if imageAnchor.referenceImage.name == "mesinGlukosa"{
                 
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-                setAttackerPhysics(node: planeNodeMdri, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
+//                setAttackerPhysics(node: planeNodeMdri, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
 
-                let sphere = SCNSphere(radius: 0.03)
+                let sphere = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 sphere.firstMaterial?.diffuse.contents = UIColor.blue
 
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
                 sphereNode.name = "glucoseMachine"
+                sphereNode.eulerAngles.x = .pi/4
                 planeNodeMdri.addChildNode(sphereNode)
                 
                 node.addChildNode(planeNodeMdri)
 
             }
             
-            
             if imageAnchor.referenceImage.name == "hasil" {
                 
-                let planeNodeKTM = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeKTM, name: "Result", category: BodyType.Result.rawValue)
+                let planeNodeHasil = generatePlane(imageAnchor)
+//                setBasicPhysics(node: planeNodeHasil, name: "Result", category: BodyType.Result.rawValue)
+                setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
 
-                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
-                        
-                let material = SCNMaterial()
-                material.diffuse.contents = UIColor.red
-                        
-                box.materials = [material]
-                        
-                let boxNode = SCNNode(geometry: box)
-                boxNode.position = SCNVector3(0, 0, 0.03)
-
-                planeNodeKTM.addChildNode(boxNode)
+//                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+//
+//                let material = SCNMaterial()
+//                material.diffuse.contents = UIColor.red
+//
+//                box.materials = [material]
+//
+//                let boxNode = SCNNode(geometry: box)
+//                boxNode.position = SCNVector3(0, 0, 0.03)
+//
+//                planeNodeKTM.addChildNode(boxNode)
                 
-                node.addChildNode(planeNodeKTM)
+                node.addChildNode(planeNodeHasil)
 
             }
         }
@@ -140,7 +139,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.28, height: imageAnchor.referenceImage.physicalSize.height * 1.28)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
         
         plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0)
         

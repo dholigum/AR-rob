@@ -31,10 +31,31 @@ extension ViewController: SCNPhysicsContactDelegate {
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
         
+        let getContact = setContactNode(contact: contact)
+        contactNode = getContact.contactNode
+        attackerNode = getContact.attackerNode
+        
+        if self.lastNode != nil && self.lastNode == contactNode {
+            return
+        }
+        self.lastNode = contactNode
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.yellow
+        var child: SCNNode!
+        child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
+        
+        child.geometry?.materials = [material]
+        
+        attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
+        
+    }
+    
+    func setContactNode(contact: SCNPhysicsContact) -> (contactNode: SCNNode, attackerNode: SCNNode) {
+        var contactNode: SCNNode!
+        var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
+        
         case BodyType.Glucose.rawValue, BodyType.GlucoseMachine.rawValue:
-            
-            
             if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
@@ -48,18 +69,8 @@ extension ViewController: SCNPhysicsContactDelegate {
             contactNode = contact.nodeA
             attackerNode = contact.nodeB
         }
-        if self.lastNode != nil && self.lastNode == contactNode {
-            return
-        }
-        self.lastNode = contactNode
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.yellow
-        var child: SCNNode!
-        child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
-        child.geometry?.materials = [material]
         
-        attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
-        
+        return (contactNode, attackerNode)
     }
 
     var removeAction: SCNAction {
