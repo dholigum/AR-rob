@@ -13,6 +13,15 @@ class Instruction2ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    @IBAction func pressedNext(_ sender: Any) {
+        let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
+        let onboardView = onboardStoryboard.instantiateViewController(identifier: "Instruction3") as! Instruction3ViewController
+        
+        onboardView.modalPresentationStyle = .fullScreen
+        self.present(onboardView, animated: true, completion: nil)
     }
     
 

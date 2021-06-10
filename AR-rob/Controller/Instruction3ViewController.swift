@@ -16,6 +16,20 @@ class Instruction3ViewController: UIViewController {
     }
     
 
+    @IBAction func pressedNext(_ sender: Any) {
+        //Change to false user defaults value
+        
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isNotFirstApp")
+        
+        // Navigate to AR Page
+        
+        let MainARStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let MainARView = MainARStoryboard.instantiateViewController(identifier: "mainARView")
+        
+        MainARView.modalPresentationStyle = .fullScreen
+        self.present(MainARView, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
