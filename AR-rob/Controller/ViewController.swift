@@ -66,14 +66,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "eevee" {
+            if imageAnchor.referenceImage.name == "eevee" || imageAnchor.referenceImage.name == "glucose" {
                 
                 let planeNodeEevee = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
                 if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
                     
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
-                        
+                        pokeNode.name = "glucose"
                         pokeNode.eulerAngles.x = .pi/4
                         planeNodeEevee.addChildNode(pokeNode)
                         
@@ -84,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             
 
-            if imageAnchor.referenceImage.name == "mdri" {
+            if imageAnchor.referenceImage.name == "mdri" || imageAnchor.referenceImage.name == "mesinGlukosa"{
                 
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
@@ -102,24 +102,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
             }
             
-//            if imageAnchor.referenceImage.name == "oddish" {
-//
-//                let planeNodeOddish = generatePlane(imageAnchor)
-//
-//                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
-//
-//                    if let pokeNode = pokeScene.rootNode.childNodes.first {
-//
-//                        pokeNode.eulerAngles.x = .pi/2
-//
-//                        planeNodeOddish.addChildNode(pokeNode)
-//
-//                        node.addChildNode(planeNodeOddish)
-//                    }
-//                }
-//            }
             
-            if imageAnchor.referenceImage.name == "kateem" {
+            if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeKTM = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeKTM, name: "Result", category: BodyType.Result.rawValue)
