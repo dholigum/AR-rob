@@ -66,7 +66,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "eevee" || imageAnchor.referenceImage.name == "glukosa" {
+            if imageAnchor.referenceImage.name == "eevee" || imageAnchor.referenceImage.name == "glucose" {
                 
                 let planeNodeEevee = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -103,7 +103,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             
-            if imageAnchor.referenceImage.name == "kateem" {
+            if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeKTM = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeKTM, name: "Result", category: BodyType.Result.rawValue)
