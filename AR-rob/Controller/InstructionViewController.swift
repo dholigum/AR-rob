@@ -11,6 +11,9 @@ class InstructionViewController: UIViewController {
 
     @IBOutlet weak var backToOnboardButton: UIButton!
     
+    @IBOutlet weak var printBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

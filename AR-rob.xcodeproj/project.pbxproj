@@ -19,6 +19,8 @@
 		2F96435C266F197D005D9B32 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435B266F197D005D9B32 /* Onboarding.storyboard */; };
 		2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435D266F198D005D9B32 /* Instruction.storyboard */; };
 		2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99AFB12670654B00A58773 /* ThemeHelper.swift */; };
+		D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */; };
+		D267F2352671C93C00A71F9A /* Instruction3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */; };
 		F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F092C52670C193003B442F /* PhysicsBody.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		2F96435B266F197D005D9B32 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		2F96435D266F198D005D9B32 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		2F99AFB12670654B00A58773 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction2ViewController.swift; sourceTree = "<group>"; };
+		D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction3ViewController.swift; sourceTree = "<group>"; };
 		F7F092C52670C193003B442F /* PhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBody.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,8 @@
 				2F54C302266F22A600F10A62 /* OnboardViewController.swift */,
 				2F54C304266F28E000F10A62 /* InstructionViewController.swift */,
 				F7F092C52670C193003B442F /* PhysicsBody.swift */,
+				D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */,
+				D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,9 +203,11 @@
 				2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */,
 				2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */,
 				2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */,
+				D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */,
 				2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */,
 				19B0B46E2671AD58001C81BA /* CheatSheetMaterial.swift in Sources */,
 				F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */,
+				D267F2352671C93C00A71F9A /* Instruction3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
