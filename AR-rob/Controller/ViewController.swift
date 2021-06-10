@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var guidanceView: UIView!
     
     var lastNode: SCNNode!
+    var nodesNeeded = [SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             configuration.trackingImages = imageToTrack
             configuration.maximumNumberOfTrackedImages = 8
-            print("Images Successfully Added")
             
         }
 
@@ -57,8 +57,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-
-    // MARK: - ARSCNViewDelegate
     
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         
@@ -66,7 +64,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "glucose" {
+            if imageAnchor.referenceImage.name == "eevee" {
                 
                 let planeNodeEevee = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -82,11 +80,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             
-            if imageAnchor.referenceImage.name == "mesinGlukosa"{
+            if imageAnchor.referenceImage.name == "mdri"{
                 
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-//                setAttackerPhysics(node: planeNodeMdri, name: "glucoseMachine", attacker: BodyType.GlucoseMachine.rawValue, target: BodyType.Result.rawValue)
 
                 let sphere = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 sphere.firstMaterial?.diffuse.contents = UIColor.blue
@@ -98,29 +95,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 planeNodeMdri.addChildNode(sphereNode)
                 
                 node.addChildNode(planeNodeMdri)
-
+                nodesNeeded.append(planeNodeMdri)
             }
             
             if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
-//                setBasicPhysics(node: planeNodeHasil, name: "Result", category: BodyType.Result.rawValue)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
-
-//                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
-//
-//                let material = SCNMaterial()
-//                material.diffuse.contents = UIColor.red
-//
-//                box.materials = [material]
-//
-//                let boxNode = SCNNode(geometry: box)
-//                boxNode.position = SCNVector3(0, 0, 0.03)
-//
-//                planeNodeKTM.addChildNode(boxNode)
+                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+                let material = SCNMaterial()
+                material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 0)
+                box.materials = [material]
+                let boxNode = SCNNode(geometry: box)
+                boxNode.position = SCNVector3(0, 0, 0.03)
+                boxNode.name = "hasil"
+                planeNodeHasil.addChildNode(boxNode)
                 
                 node.addChildNode(planeNodeHasil)
-
+                nodesNeeded.append(planeNodeHasil)
             }
         }
         
@@ -139,9 +131,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.2, height: imageAnchor.referenceImage.physicalSize.height)
         
-        plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0)
+        plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.6)
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.eulerAngles.x = -.pi / 4
@@ -149,5 +141,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         return planeNode
     }
+//    var isChanged: Bool = false
+//
+//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+//        if !isChanged {
+//            if nodesNeeded.count == 2 {
+//                let p1 = SCNVector3ToGLKVector3(nodesNeeded[0].position)
+//                let p2 = SCNVector3ToGLKVector3(nodesNeeded[1].position)
+//
+//                let distance = GLKVector3Distance(p1, p2)
+//                if distance < 0.0010 {
+//                    let material = SCNMaterial()
+//                    material.diffuse.contents = UIColor.brown
+//                    nodesNeeded[0].geometry?.materials = [material]
+//                    self.isChanged = true
+//                }
+//            }
+//        }
+//    }
     
 }

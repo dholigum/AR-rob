@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Artboard 3.png",
+      "filename" : "Artboard 1.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 7.0304347826086966
+    "width" : 7
   }
 }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mesin DO.png",
+      "filename" : "mesinDO.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 6.9228260869565217
+    "width" : 7.011032028469752
   }
 }

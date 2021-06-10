@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mesin 1.png",
+      "filename" : "Artboard 3.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 6.9548387096774196
+    "width" : 7
   }
 }

@@ -27,27 +27,45 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        
+
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
-        
+
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
-        
-        if self.lastNode != nil && self.lastNode == contactNode {
+        print("\(contactNode.name!) = \(attackerNode.name!)")
+        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
             return
         }
         self.lastNode = contactNode
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.yellow
         var child: SCNNode!
-        child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
-        
-        child.geometry?.materials = [material]
-        
-        attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
-        
+        if attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
+            child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
+
+            child.geometry?.materials = [material]
+
+            attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
+        }
+        else {
+            print("masuk")
+            
+            let boxx = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+            let mtr = SCNMaterial()
+            mtr.diffuse.contents = UIColor.red
+            boxx.materials = [mtr]
+            let boxNode = SCNNode(geometry: boxx)
+            boxNode.position = SCNVector3(0, 0.05, 0.03)
+            
+            material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 1.0)
+
+            let resultChild = attackerNode.childNode(withName: "hasil", recursively: false)
+            resultChild?.geometry?.materials = [material]
+            attackerNode.addChildNode(boxNode)
+        }
+
     }
     
     func setContactNode(contact: SCNPhysicsContact) -> (contactNode: SCNNode, attackerNode: SCNNode) {
@@ -55,7 +73,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Glucose.rawValue, BodyType.GlucoseMachine.rawValue:
+        case BodyType.Glucose.rawValue, BodyType.Result.rawValue:
             if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
