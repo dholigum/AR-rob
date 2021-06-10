@@ -30,26 +30,23 @@ extension ViewController: SCNPhysicsContactDelegate {
 
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
+        let material = SCNMaterial()
+        var child: SCNNode!
+        material.diffuse.contents = UIColor.yellow
+        
 
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
-        print("\(contactNode.name!) = \(attackerNode.name!)")
+        
         if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
             return
         }
+        
         self.lastNode = contactNode
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.yellow
-        var child: SCNNode!
-        if attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
-            child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
-
-            child.geometry?.materials = [material]
-
-            attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
-        }
-        else {
+        
+        switch attackerNode.physicsBody?.categoryBitMask {
+        case BodyType.Result.rawValue:
             print("masuk")
             
             let boxx = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
@@ -64,7 +61,17 @@ extension ViewController: SCNPhysicsContactDelegate {
             let resultChild = attackerNode.childNode(withName: "hasil", recursively: false)
             resultChild?.geometry?.materials = [material]
             attackerNode.addChildNode(boxNode)
+            
+        case BodyType.Glucose.rawValue:
+            child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
+
+            child.geometry?.materials = [material]
+
+            attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
+        default:
+            return
         }
+        
 
     }
     

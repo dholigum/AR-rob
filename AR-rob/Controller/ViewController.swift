@@ -81,7 +81,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             if imageAnchor.referenceImage.name == "mdri"{
-                
+                            
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
 
@@ -95,29 +95,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 planeNodeMdri.addChildNode(sphereNode)
                 
                 node.addChildNode(planeNodeMdri)
-                nodesNeeded.append(planeNodeMdri)
             }
             
             if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
-                let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
-                let material = SCNMaterial()
-                material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 0)
-                box.materials = [material]
-                let boxNode = SCNNode(geometry: box)
-                boxNode.position = SCNVector3(0, 0, 0.03)
-                boxNode.name = "hasil"
-                planeNodeHasil.addChildNode(boxNode)
+                let resultNode = createTransparentObject()
+                resultNode.name = "hasil"
+                planeNodeHasil.addChildNode(resultNode)
                 
                 node.addChildNode(planeNodeHasil)
-                nodesNeeded.append(planeNodeHasil)
+            }
+            
+            if imageAnchor.referenceImage.name == "storage" {
+                let planeNodeStorage = generatePlane(imageAnchor)
+                setAttackerPhysics(node: planeNodeStorage, name: "storage", attacker: BodyType.Storage.rawValue, target: BodyType.Result.rawValue)
+                let storageNode = createTransparentObject()
+                storageNode.name = "storage"
+                planeNodeStorage.addChildNode(storageNode)
+                node.addChildNode(planeNodeStorage)
+            }
+            
+            if imageAnchor.referenceImage.name == "packaging" {
+                
             }
         }
         
         return node
     }
+    
+    func createTransparentObject() -> SCNNode{
+            let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 0)
+            box.materials = [material]
+            let boxNode = SCNNode(geometry: box)
+            boxNode.position = SCNVector3(0, 0, 0.03)
+            
+            return boxNode
+        }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
