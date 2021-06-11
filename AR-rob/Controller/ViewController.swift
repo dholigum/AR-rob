@@ -126,6 +126,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 planeNodePackaging.addChildNode(planeNodePackaging)
                 node.addChildNode(planeNodePackaging)
             }
+            
+            if imageAnchor.referenceImage.name == "mesinDO" {
+                let planeNodeDO = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeDO, name: "mesinDO", category: BodyType.DOMachine.rawValue)
+                planeNodeDO.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
+                cube.firstMaterial?.diffuse.contents = UIColor.blue
+
+                let sphereNode = SCNNode(geometry: cube)
+                sphereNode.position = SCNVector3(0, 0, 0.03)
+                sphereNode.name = "mesinDO"
+                sphereNode.eulerAngles.x = .pi/4
+                planeNodeDO.addChildNode(sphereNode)
+                
+                node.addChildNode(planeNodeDO)
+                
+            }
         }
         
         return node
@@ -154,7 +171,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.2, height: imageAnchor.referenceImage.physicalSize.height)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.15, height: imageAnchor.referenceImage.physicalSize.height)
         
         plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.6)
         
@@ -164,30 +181,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         return planeNode
     }
-//    var isChanged: Bool = false
-//
-//    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//        if !isChanged {
-//            if nodesNeeded.count == 2 {
-//                let p1 = SCNVector3ToGLKVector3(nodesNeeded[0].position)
-//                let p2 = SCNVector3ToGLKVector3(nodesNeeded[1].position)
-//                if nodesNeeded.first?.categoryBitMask == BodyType.Storage.rawValue {
-//                    let distance = GLKVector3Distance(p1, p2)
-//                    if distance < 0.0001 {
-//                        let material = SCNMaterial()
-//                        material.diffuse.contents = UIColor.brown
-//                        nodesNeeded[1].geometry?.materials = [material]
-//                        self.isChanged = true
-//                    }
-//                }
-//                else {
-//                    let temp1 = nodesNeeded[0]
-//                    nodesNeeded[0] = nodesNeeded[1]
-//                    nodesNeeded[1] = temp1
-//                }
-//
-//            }
-//        }
-//    }
     
 }
