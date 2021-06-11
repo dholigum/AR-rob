@@ -11,13 +11,18 @@ class InstructionViewController: UIViewController {
 
     @IBOutlet weak var backToOnboardButton: UIButton!
     
+    @IBOutlet weak var printBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        backToOnboardButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        backToOnboardButton.tintColor = .black
+        //backToOnboardButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        //backToOnboardButton.tintColor = .black
+        
+        printBtn.layer.cornerRadius = 10
     }
     
     @IBAction func backToOnboardPressed(_ sender: UIButton) {
@@ -29,21 +34,30 @@ class InstructionViewController: UIViewController {
         self.present(onboardView, animated: true, completion: nil)
     }
     
-    @IBAction func gotItButtonPressed(_ sender: UIButton) {
+    @IBAction func printPressed(_ sender: Any) {
+        let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
+        let onboardView = onboardStoryboard.instantiateViewController(identifier: "Instruction2") as! Instruction2ViewController
         
-        // Change to false user defaults value
-        
-        let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "isNotFirstApp")
-        
-        // Navigate to AR Page
-        
-        let MainARStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let MainARView = MainARStoryboard.instantiateViewController(identifier: "mainARView")
-        
-        MainARView.modalPresentationStyle = .fullScreen
-        self.present(MainARView, animated: true, completion: nil)
-
+        onboardView.modalPresentationStyle = .fullScreen
+        self.present(onboardView, animated: true, completion: nil)
     }
+    
+        
+//    @IBAction func gotItButtonPressed(_ sender: UIButton) {
+//
+//        // Change to false user defaults value
+//
+//        let defaults = UserDefaults.standard
+//        defaults.set(true, forKey: "isNotFirstApp")
+//
+//        // Navigate to AR Page
+//
+//        let MainARStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let MainARView = MainARStoryboard.instantiateViewController(identifier: "mainARView")
+//
+//        MainARView.modalPresentationStyle = .fullScreen
+//        self.present(MainARView, animated: true, completion: nil)
+//
+//    }
     
 }
