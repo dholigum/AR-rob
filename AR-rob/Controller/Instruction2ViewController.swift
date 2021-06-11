@@ -16,6 +16,14 @@ class Instruction2ViewController: UIViewController {
         
     }
     
+    @IBAction func backBtnPressed(_ sender: Any) {
+        let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
+        let onboardView = onboardStoryboard.instantiateViewController(identifier: "instructionView") as! InstructionViewController
+        
+        onboardView.modalPresentationStyle = .fullScreen
+        self.present(onboardView, animated: true, completion: nil)
+    }
+    
     @IBAction func pressedNext(_ sender: Any) {
         let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
         let onboardView = onboardStoryboard.instantiateViewController(identifier: "Instruction3") as! Instruction3ViewController
