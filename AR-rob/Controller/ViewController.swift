@@ -81,7 +81,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             
-            if imageAnchor.referenceImage.name == "mdri"{
+            if imageAnchor.referenceImage.name == "mesinGlikolisis"{
                             
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
@@ -102,14 +102,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
-//                planeNodeHasil.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
-//                setBasicPhysics(node: planeNodeHasil, name: "hasil", category: BodyType.Result.rawValue)
                 let resultNode = createTransparentObject()
                 resultNode.name = "hasil"
                 planeNodeHasil.addChildNode(resultNode)
                 
                 node.addChildNode(planeNodeHasil)
-                nodesNeeded.append(planeNodeHasil)
             }
             
             if imageAnchor.referenceImage.name == "storage" {
@@ -119,11 +116,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 storageNode.name = "storage"
                 planeNodeStorage.addChildNode(storageNode)
                 node.addChildNode(planeNodeStorage)
-                nodesNeeded.append(planeNodeStorage)
             }
             
             if imageAnchor.referenceImage.name == "packaging" {
-                
+                let planeNodePackaging = generatePlane(imageAnchor)
+                setAttackerPhysics(node: planeNodePackaging, name: "packaging", attacker: BodyType.Packaging.rawValue, target: BodyType.Result.rawValue)
+                let packagingNode = createTransparentObject()
+                packagingNode.name = "packaging"
+                planeNodePackaging.addChildNode(planeNodePackaging)
+                node.addChildNode(planeNodePackaging)
             }
         }
         

@@ -47,7 +47,6 @@ extension ViewController: SCNPhysicsContactDelegate {
         
         switch attackerNode.physicsBody?.categoryBitMask {
         case BodyType.Result.rawValue:
-            print("masuk")
             
             let boxx = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
             let mtr = SCNMaterial()
@@ -62,8 +61,12 @@ extension ViewController: SCNPhysicsContactDelegate {
             resultChild?.geometry?.materials = [material]
             boxNode.name = "ATP"
             attackerNode.addChildNode(boxNode)
+            print(contactNode.name!)
             if contactNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
+            }
+            else if contactNode.physicsBody?.categoryBitMask == BodyType.Packaging.rawValue {
+                attackerNode.physicsBody?.contactTestBitMask = BodyType.Packaging.rawValue
             }
             
             
@@ -75,23 +78,36 @@ extension ViewController: SCNPhysicsContactDelegate {
             attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
         case BodyType.Storage.rawValue:
             
-            print("MASUKKKKKK")
+            moveChilds(node: attackerNode, isATP: false)
             
-            let childs = lastNode.childNodes
-            var selectedChilds = [SCNNode]()
-            for child in childs {
+        case BodyType.Packaging.rawValue:
+            moveChilds(node: attackerNode, isATP: true)
+        default:
+            return
+        }
+    }
+    
+    func moveChilds(node: SCNNode ,isATP: Bool) {
+        
+        var selectedChilds = [SCNNode]()
+        
+        if isATP {
+            for child in lastNode.childNodes {
+                if child.name == "ATP" {
+                    selectedChilds.append(child)
+                }
+            }
+        }
+        else {
+            for child in lastNode.childNodes {
                 if child.name != "ATP" {
                     selectedChilds.append(child)
                 }
             }
-            for data in selectedChilds {
-                attackerNode.addChildNode(data)
-            }
-        default:
-            return
         }
-        
-
+        for data in selectedChilds {
+            node.addChildNode(data)
+        }
     }
     
     func setContactNode(contact: SCNPhysicsContact) -> (contactNode: SCNNode, attackerNode: SCNNode) {
@@ -99,7 +115,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Glucose.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue:
+        case BodyType.Glucose.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue:
             if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
