@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Artboard 1.png",
+      "filename" : "glucose.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 7
+    "width" : 7.011032028469752
   }
 }

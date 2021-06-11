@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mesinGlikolisis.png",
+      "filename" : "hasil.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 7.0462633451957304
+    "width" : 7.011032028469752
   }
 }

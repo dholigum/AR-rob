@@ -66,16 +66,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "eevee" {
                 
-                let planeNodeEevee = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeEevee, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
-                if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
+                let planeNodeGlucose = generatePlane(imageAnchor)
+                setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
+                if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {
                     
-                    if let pokeNode = pokeScene.rootNode.childNodes.first {
-                        pokeNode.name = "glucose"
-                        pokeNode.eulerAngles.x = .pi/4
-                        planeNodeEevee.addChildNode(pokeNode)
+                    if let glucoseNode = glucoseScene.rootNode.childNodes.first {
+                        glucoseNode.name = "glucose"
+                        glucoseNode.eulerAngles.x = .pi/4
+                        glucoseNode.position = SCNVector3(0, 0, 0)
+                        planeNodeGlucose.addChildNode(glucoseNode)
                         
-                        node.addChildNode(planeNodeEevee)
+                        node.addChildNode(planeNodeGlucose)
                     }
                 }
             }
@@ -101,11 +102,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
+//                planeNodeHasil.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
+//                setBasicPhysics(node: planeNodeHasil, name: "hasil", category: BodyType.Result.rawValue)
                 let resultNode = createTransparentObject()
                 resultNode.name = "hasil"
                 planeNodeHasil.addChildNode(resultNode)
                 
                 node.addChildNode(planeNodeHasil)
+                nodesNeeded.append(planeNodeHasil)
             }
             
             if imageAnchor.referenceImage.name == "storage" {
@@ -115,6 +119,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 storageNode.name = "storage"
                 planeNodeStorage.addChildNode(storageNode)
                 node.addChildNode(planeNodeStorage)
+                nodesNeeded.append(planeNodeStorage)
             }
             
             if imageAnchor.referenceImage.name == "packaging" {
@@ -165,14 +170,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //            if nodesNeeded.count == 2 {
 //                let p1 = SCNVector3ToGLKVector3(nodesNeeded[0].position)
 //                let p2 = SCNVector3ToGLKVector3(nodesNeeded[1].position)
-//
-//                let distance = GLKVector3Distance(p1, p2)
-//                if distance < 0.0010 {
-//                    let material = SCNMaterial()
-//                    material.diffuse.contents = UIColor.brown
-//                    nodesNeeded[0].geometry?.materials = [material]
-//                    self.isChanged = true
+//                if nodesNeeded.first?.categoryBitMask == BodyType.Storage.rawValue {
+//                    let distance = GLKVector3Distance(p1, p2)
+//                    if distance < 0.0001 {
+//                        let material = SCNMaterial()
+//                        material.diffuse.contents = UIColor.brown
+//                        nodesNeeded[1].geometry?.materials = [material]
+//                        self.isChanged = true
+//                    }
 //                }
+//                else {
+//                    let temp1 = nodesNeeded[0]
+//                    nodesNeeded[0] = nodesNeeded[1]
+//                    nodesNeeded[1] = temp1
+//                }
+//
 //            }
 //        }
 //    }

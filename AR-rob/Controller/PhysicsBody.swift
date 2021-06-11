@@ -38,7 +38,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
-        
+        print("\(attackerNode.name!) = \(contactNode.name!)")
         if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
             return
         }
@@ -60,7 +60,12 @@ extension ViewController: SCNPhysicsContactDelegate {
 
             let resultChild = attackerNode.childNode(withName: "hasil", recursively: false)
             resultChild?.geometry?.materials = [material]
+            boxNode.name = "ATP"
             attackerNode.addChildNode(boxNode)
+            if contactNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
+                attackerNode.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
+            }
+            
             
         case BodyType.Glucose.rawValue:
             child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
@@ -68,6 +73,20 @@ extension ViewController: SCNPhysicsContactDelegate {
             child.geometry?.materials = [material]
 
             attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
+        case BodyType.Storage.rawValue:
+            
+            print("MASUKKKKKK")
+            
+            let childs = lastNode.childNodes
+            var selectedChilds = [SCNNode]()
+            for child in childs {
+                if child.name != "ATP" {
+                    selectedChilds.append(child)
+                }
+            }
+            for data in selectedChilds {
+                attackerNode.addChildNode(data)
+            }
         default:
             return
         }
@@ -80,7 +99,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Glucose.rawValue, BodyType.Result.rawValue:
+        case BodyType.Glucose.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue:
             if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
