@@ -12,6 +12,7 @@
 		19B0B4722671C0CC001C81BA /* CheatSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B4712671C0CC001C81BA /* CheatSheetViewController.swift */; };
 		19B0B4752671C2F5001C81BA /* CheatSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B4732671C2F5001C81BA /* CheatSheetCollectionViewCell.swift */; };
 		19B0B4762671C2F5001C81BA /* CheatSheetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B0B4742671C2F5001C81BA /* CheatSheetCollectionViewCell.xib */; };
+		19E492B1267311DA00C6AF57 /* UICustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E492B0267311DA00C6AF57 /* UICustom.swift */; };
 		2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C302266F22A600F10A62 /* OnboardViewController.swift */; };
 		2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C304266F28E000F10A62 /* InstructionViewController.swift */; };
 		2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964344266F1032005D9B32 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		19B0B4712671C0CC001C81BA /* CheatSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetViewController.swift; sourceTree = "<group>"; };
 		19B0B4732671C2F5001C81BA /* CheatSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetCollectionViewCell.swift; sourceTree = "<group>"; };
 		19B0B4742671C2F5001C81BA /* CheatSheetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheatSheetCollectionViewCell.xib; sourceTree = "<group>"; };
+		19E492B0267311DA00C6AF57 /* UICustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustom.swift; sourceTree = "<group>"; };
 		2F54C302266F22A600F10A62 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		2F54C304266F28E000F10A62 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		2F964341266F1032005D9B32 /* AR-rob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-rob.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				2F99AFB12670654B00A58773 /* ThemeHelper.swift */,
+				19E492B0267311DA00C6AF57 /* UICustom.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */,
 				2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */,
 				19B0B46E2671AD58001C81BA /* CheatSheetMaterial.swift in Sources */,
+				19E492B1267311DA00C6AF57 /* UICustom.swift in Sources */,
 				19B0B4722671C0CC001C81BA /* CheatSheetViewController.swift in Sources */,
 				19B0B4752671C2F5001C81BA /* CheatSheetCollectionViewCell.swift in Sources */,
 				F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */,

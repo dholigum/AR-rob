@@ -1,70 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheatSheetCell" rowHeight="498" id="KGk-i7-Jjw" customClass="CheatSheetCollectionViewCell" customModule="AR_rob" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="493"/>
+            <rect key="frame" x="0.0" y="0.0" width="353" height="547"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="CheatSheetCollectionViewCell" customModule="AR_rob" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="493"/>
+                <rect key="frame" x="0.0" y="0.0" width="353" height="547"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERA-o4-R53">
-                        <rect key="frame" x="16" y="16" width="288" height="461"/>
+                        <rect key="frame" x="0.0" y="0.0" width="353" height="547"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="258-dg-pnZ">
-                                <rect key="frame" x="24" y="36" width="240" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="258-dg-pnZ">
+                                <rect key="frame" x="24" y="24" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-FJ-hdI">
-                                <rect key="frame" x="24" y="65" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-FJ-hdI">
+                                <rect key="frame" x="24" y="69" width="305" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="OkX-tc-t8m"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="26"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-Nn-S2C">
-                                <rect key="frame" x="24" y="214" width="240" height="224"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl2-gr-TTH">
+                                <rect key="frame" x="24" y="504" width="303" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="f7j-m0-hy4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subtitle 1" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkZ-aR-xYJ">
+                                <rect key="frame" x="24" y="240" width="303" height="44"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Subtitle 2" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K33-dq-zJ0">
+                                <rect key="frame" x="24" y="282" width="303" height="52"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-Nn-S2C">
+                                <rect key="frame" x="24" y="334" width="305" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="0fJ-1a-tFx"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="258-dg-pnZ" firstAttribute="top" secondItem="ERA-o4-R53" secondAttribute="top" constant="24" id="4pq-bb-6Nn"/>
+                            <constraint firstItem="jl2-gr-TTH" firstAttribute="top" secondItem="OQe-Nn-S2C" secondAttribute="bottom" constant="24" id="CGb-fP-Uve"/>
+                            <constraint firstItem="jl2-gr-TTH" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="EOj-dI-hb3"/>
+                            <constraint firstItem="K33-dq-zJ0" firstAttribute="top" secondItem="dpK-FJ-hdI" secondAttribute="bottom" constant="24" id="MVr-f7-Hyf"/>
+                            <constraint firstAttribute="trailing" secondItem="258-dg-pnZ" secondAttribute="trailing" constant="24" id="Sik-nW-iAm"/>
+                            <constraint firstItem="OQe-Nn-S2C" firstAttribute="top" secondItem="K33-dq-zJ0" secondAttribute="bottom" id="T3I-N7-ohi"/>
+                            <constraint firstAttribute="bottom" secondItem="jl2-gr-TTH" secondAttribute="bottom" constant="22" id="Tib-It-bcH"/>
+                            <constraint firstItem="258-dg-pnZ" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="WHL-vv-o8B"/>
+                            <constraint firstItem="OQe-Nn-S2C" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="Ysx-fX-W3S"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="top" secondItem="258-dg-pnZ" secondAttribute="bottom" constant="24" id="cee-xg-uga"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="trailing" secondItem="jl2-gr-TTH" secondAttribute="trailing" id="eqa-Nq-BYZ"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="trailing" secondItem="BkZ-aR-xYJ" secondAttribute="trailing" id="iiE-M6-aKm"/>
+                            <constraint firstItem="BkZ-aR-xYJ" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="jdy-6l-Oep"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="swM-HV-L87"/>
+                            <constraint firstItem="K33-dq-zJ0" firstAttribute="leading" secondItem="ERA-o4-R53" secondAttribute="leading" constant="24" id="tA6-su-Cnl"/>
+                            <constraint firstItem="BkZ-aR-xYJ" firstAttribute="top" secondItem="dpK-FJ-hdI" secondAttribute="bottom" constant="24" id="tCw-Zn-yoG"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="trailing" secondItem="258-dg-pnZ" secondAttribute="trailing" id="ugM-dr-PtU"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="trailing" secondItem="K33-dq-zJ0" secondAttribute="trailing" id="vSZ-je-XBI"/>
+                            <constraint firstItem="dpK-FJ-hdI" firstAttribute="trailing" secondItem="OQe-Nn-S2C" secondAttribute="trailing" id="vlT-4d-b5t"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="26"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ERA-o4-R53" secondAttribute="bottom" constant="16" id="PWA-DT-nX4"/>
-                    <constraint firstItem="ERA-o4-R53" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mac-yW-M3H"/>
-                    <constraint firstAttribute="trailing" secondItem="ERA-o4-R53" secondAttribute="trailing" constant="16" id="oaK-7D-7i9"/>
-                    <constraint firstItem="ERA-o4-R53" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="uNK-4B-3fQ"/>
+                    <constraint firstAttribute="bottom" secondItem="ERA-o4-R53" secondAttribute="bottom" id="2DS-i9-WW9"/>
+                    <constraint firstItem="ERA-o4-R53" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XyC-dA-O44"/>
+                    <constraint firstAttribute="trailing" secondItem="ERA-o4-R53" secondAttribute="trailing" id="jNV-Jy-HLs"/>
+                    <constraint firstItem="ERA-o4-R53" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nZC-KX-Q9w"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cheatDetail" destination="OQe-Nn-S2C" id="19w-Pv-PlC"/>
                 <outlet property="cheatImage" destination="dpK-FJ-hdI" id="gkY-54-GAA"/>
+                <outlet property="cheatSubTitle1" destination="BkZ-aR-xYJ" id="McV-yd-i7C"/>
+                <outlet property="cheatSubTitle2" destination="K33-dq-zJ0" id="Omg-co-h34"/>
                 <outlet property="cheatTitle" destination="258-dg-pnZ" id="gxq-bF-TWl"/>
+                <outlet property="summaryLabel" destination="jl2-gr-TTH" id="Mdi-vc-XAi"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="271.54017857142856"/>
+            <point key="canvasLocation" x="136.15384615384616" y="271.20853080568719"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
