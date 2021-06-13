@@ -56,13 +56,18 @@ extension ViewController: SCNPhysicsContactDelegate {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Packaging.rawValue
             }
             
-            
         case BodyType.Input.rawValue:
-            child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
+           if contactNode.physicsBody?.categoryBitMask == BodyType.Result.rawValue {
+                contactNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
+                attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+            }
+           else if lastNode.physicsBody?.categoryBitMask == BodyType.GlucoseMachine.rawValue || lastNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
+                child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
 
-            child.geometry?.materials = [material]
-
-            attackerNode.childNode(withName: "\(attackerNode.name!)", recursively: false)?.runAction(removeAction)
+                child.geometry?.materials = [material]
+                removeChild(node: attackerNode)
+            }
+            
         case BodyType.Storage.rawValue:
             moveChilds(node: attackerNode, isATP: false)
             
@@ -104,33 +109,21 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
-            var child: SCNNode!
-            child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
-            let material = SCNMaterial()
-            material.diffuse.contents = UIColor.green
-            child.geometry?.materials = [material]
-            
-            for c in myNode.childNodes {
-                myNode.childNode(withName: c.name!, recursively: false)?.removeFromParentNode()
+            if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "koA"
+                    sceneNode.position = SCNVector3(0, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
             }
         }
+        if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
+            for child in myNode.childNodes {
+                targetNode.addChildNode(child)
+            }
+            myNode.physicsBody?.categoryBitMask = BodyType.DOMachine.rawValue
+        }
     }
-    
-//    func cekHit(node: SCNNode) {
-//        switch isHit {
-//        case 1:
-//            if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
-//                if let sceneNode = scene.rootNode.childNodes.first {
-//                    sceneNode.name = "koA"
-//                    sceneNode.position = SCNVector3(0, 0, 0)
-//                    node.addChildNode(sceneNode)
-//                    isHit = 0
-//                }
-//            }
-//        default:
-//            return
-//        }
-//    }
     
     func moveChilds(node: SCNNode ,isATP: Bool) {
         
@@ -161,14 +154,8 @@ extension ViewController: SCNPhysicsContactDelegate {
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
         case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue:
-            if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Input.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
-            }
-            else {
-                contactNode = contact.nodeA
-                attackerNode = contact.nodeB
-            }
             
         default:
             contactNode = contact.nodeA
@@ -176,6 +163,12 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         return (contactNode, attackerNode)
+    }
+    
+    func removeChild(node: SCNNode) {
+        for child in node.childNodes {
+            child.runAction(removeAction)
+        }
     }
 
     var removeAction: SCNAction {

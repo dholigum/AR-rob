@@ -63,7 +63,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "eevee" {
+            if imageAnchor.referenceImage.name == "glucose" {
                 
                 let planeNodeGlucose = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -170,7 +170,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.1, height: imageAnchor.referenceImage.physicalSize.height)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.15, height: imageAnchor.referenceImage.physicalSize.height)
         
         plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.6)
         
