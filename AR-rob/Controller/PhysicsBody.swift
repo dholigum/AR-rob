@@ -11,7 +11,7 @@ import SceneKit
 import ARKit
 
 enum BodyType: Int {
-    case Glucose = 1
+    case Input = 1
     case GlucoseMachine = 2
     case DOMachine = 3
     case SKMachine = 4
@@ -48,18 +48,16 @@ extension ViewController: SCNPhysicsContactDelegate {
         switch attackerNode.physicsBody?.categoryBitMask {
         case BodyType.Result.rawValue:
             attackMachine(myNode: attackerNode, targetNode: contactNode)
+            
             if contactNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
             }
             else if contactNode.physicsBody?.categoryBitMask == BodyType.Packaging.rawValue {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Packaging.rawValue
             }
-            else if contactNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
-                attackerNode.childNode(withName: "piruvat", recursively: false)?.runAction(removeAction)
-                attackerNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
-            }
             
-        case BodyType.Glucose.rawValue:
+            
+        case BodyType.Input.rawValue:
             child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
 
             child.geometry?.materials = [material]
@@ -70,15 +68,6 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.Packaging.rawValue:
             moveChilds(node: attackerNode, isATP: true)
-            
-        case BodyType.DOMachine.rawValue:
-            if let koaScene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
-                if let koaNode = koaScene.rootNode.childNodes.first {
-                    koaNode.name = "koA"
-                    koaNode.position = SCNVector3(0, 0, 0)
-                    lastNode.addChildNode(koaNode)
-                }
-            }
         
         default:
             return
@@ -86,6 +75,7 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
     
     func attackMachine(myNode: SCNNode, targetNode: SCNNode) {
+        
         if targetNode.physicsBody?.categoryBitMask == BodyType.GlucoseMachine.rawValue {
             if let piruvatScene = SCNScene(named: "art.scnassets/piruvat.scn") {
                 if let piruvateNode = piruvatScene.rootNode.childNodes.first {
@@ -119,9 +109,28 @@ extension ViewController: SCNPhysicsContactDelegate {
             let material = SCNMaterial()
             material.diffuse.contents = UIColor.green
             child.geometry?.materials = [material]
-
+            
+            for c in myNode.childNodes {
+                myNode.childNode(withName: c.name!, recursively: false)?.removeFromParentNode()
+            }
         }
     }
+    
+//    func cekHit(node: SCNNode) {
+//        switch isHit {
+//        case 1:
+//            if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
+//                if let sceneNode = scene.rootNode.childNodes.first {
+//                    sceneNode.name = "koA"
+//                    sceneNode.position = SCNVector3(0, 0, 0)
+//                    node.addChildNode(sceneNode)
+//                    isHit = 0
+//                }
+//            }
+//        default:
+//            return
+//        }
+//    }
     
     func moveChilds(node: SCNNode ,isATP: Bool) {
         
@@ -151,8 +160,8 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Glucose.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue, BodyType.DOMachine.rawValue:
-            if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Glucose.rawValue {
+        case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue:
+            if contact.nodeB.physicsBody?.categoryBitMask != BodyType.Input.rawValue {
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
             }

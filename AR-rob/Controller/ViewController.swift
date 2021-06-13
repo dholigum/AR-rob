@@ -16,7 +16,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var guidanceView: UIView!
     
     var lastNode: SCNNode!
-    var nodesNeeded = [SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +66,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if imageAnchor.referenceImage.name == "eevee" {
                 
                 let planeNodeGlucose = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Glucose.rawValue, target: BodyType.GlucoseMachine.rawValue)
+                setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
                 if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {
                     
                     if let glucoseNode = glucoseScene.rootNode.childNodes.first {
@@ -130,7 +129,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             if imageAnchor.referenceImage.name == "mesinDO" {
                 let planeNodeDO = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeDO, name: "mesinDO", category: BodyType.DOMachine.rawValue)
-                planeNodeDO.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+                
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 cube.firstMaterial?.diffuse.contents = UIColor.blue
 
@@ -171,7 +170,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
         
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.15, height: imageAnchor.referenceImage.physicalSize.height)
+        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width * 1.1, height: imageAnchor.referenceImage.physicalSize.height)
         
         plane.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.6)
         
