@@ -31,7 +31,6 @@ extension ViewController: SCNPhysicsContactDelegate {
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
         let material = SCNMaterial()
-        var child: SCNNode!
         material.diffuse.contents = UIColor.yellow
         
 
@@ -39,6 +38,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
         print("\(attackerNode.name!) = \(contactNode.name!)")
+        
         if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
             return
         }
@@ -62,8 +62,10 @@ extension ViewController: SCNPhysicsContactDelegate {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
             }
            else if lastNode.physicsBody?.categoryBitMask == BodyType.GlucoseMachine.rawValue || lastNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
-                child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false)
-
+                
+            guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
+                return
+            }
                 child.geometry?.materials = [material]
                 removeChild(node: attackerNode)
             }
@@ -121,7 +123,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             for child in myNode.childNodes {
                 targetNode.addChildNode(child)
             }
-            myNode.physicsBody?.categoryBitMask = BodyType.DOMachine.rawValue
+            myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
         }
     }
     
@@ -131,14 +133,14 @@ extension ViewController: SCNPhysicsContactDelegate {
         
         if isATP {
             for child in lastNode.childNodes {
-                if child.name == "ATP" {
+                if child.name == "ATP" || child.name == "CO2" {
                     selectedChilds.append(child)
                 }
             }
         }
         else {
             for child in lastNode.childNodes {
-                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" {
+                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "CO2" {
                     selectedChilds.append(child)
                 }
             }

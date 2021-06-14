@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var guidanceView: UIView!
     
     var lastNode: SCNNode!
+    var hasil: SCNNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +105,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let resultNode = createTransparentObject()
                 resultNode.name = "hasil"
                 planeNodeHasil.addChildNode(resultNode)
-                
+                hasil = planeNodeHasil
                 node.addChildNode(planeNodeHasil)
             }
             
