@@ -1,0 +1,35 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "engineDOCard.arreferenceimage"
+    },
+    {
+      "filename" : "engineGlikolisisCard.arreferenceimage"
+    },
+    {
+      "filename" : "engineKrebCard.arreferenceimage"
+    },
+    {
+      "filename" : "engineTECard.arreferenceimage"
+    },
+    {
+      "filename" : "inputCard.arreferenceimage"
+    },
+    {
+      "filename" : "mdri.arreferenceimage"
+    },
+    {
+      "filename" : "packagingCard.arreferenceimage"
+    },
+    {
+      "filename" : "resultCard.arreferenceimage"
+    },
+    {
+      "filename" : "storageCard.arreferenceimage"
+    }
+  ]
+}

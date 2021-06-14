@@ -39,7 +39,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARImageTrackingConfiguration()
         
-        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "Pokemon Cards", bundle: Bundle.main) {
+        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "Arrob Cards", bundle: Bundle.main) {
             
             configuration.trackingImages = imageToTrack
             configuration.maximumNumberOfTrackedImages = 8
@@ -63,7 +63,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "glucose" {
+            if imageAnchor.referenceImage.name == "inputCard" {
                 
                 let planeNodeGlucose = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -80,7 +80,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             
-            if imageAnchor.referenceImage.name == "mesinGlikolisis"{
+            if imageAnchor.referenceImage.name == "engineGlikolisisCard"{
                             
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
@@ -97,7 +97,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeMdri)
             }
             
-            if imageAnchor.referenceImage.name == "hasil" {
+            if imageAnchor.referenceImage.name == "mdri" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -107,7 +107,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeHasil)
             }
             
-            if imageAnchor.referenceImage.name == "storage" {
+            if imageAnchor.referenceImage.name == "storageCard" {
                 let planeNodeStorage = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeStorage, name: "storage", attacker: BodyType.Storage.rawValue, target: BodyType.Result.rawValue)
                 let storageNode = createTransparentObject()
@@ -116,7 +116,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeStorage)
             }
             
-            if imageAnchor.referenceImage.name == "packaging" {
+            if imageAnchor.referenceImage.name == "packagingCard" {
                 let planeNodePackaging = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodePackaging, name: "packaging", attacker: BodyType.Packaging.rawValue, target: BodyType.Result.rawValue)
                 let packagingNode = createTransparentObject()
@@ -125,7 +125,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodePackaging)
             }
             
-            if imageAnchor.referenceImage.name == "mesinDO" {
+            if imageAnchor.referenceImage.name == "engineDOCard" {
                 let planeNodeDO = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeDO, name: "mesinDO", category: BodyType.DOMachine.rawValue)
                 
@@ -142,7 +142,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
             }
             
-            if imageAnchor.referenceImage.name == "mesinSK" {
+            if imageAnchor.referenceImage.name == "engineKrebCard" {
                 let planeNodeSK = generatePlane(imageAnchor)
 //                setBasicPhysics(node: planeNodeSK, name: "mesinSK", category: BodyType.SKMachine.rawValue)
                 setAttackerPhysics(node: planeNodeSK, name: "mesinSK", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
@@ -160,7 +160,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
             }
             
-            if imageAnchor.referenceImage.name == "mesinTE" {
+            if imageAnchor.referenceImage.name == "engineTECard" {
                 let planeNodeTE = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeTE, name: "mesinTE", category: BodyType.TEMachine.rawValue)
                 
