@@ -19,9 +19,14 @@ class Instruction3ViewController: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Instruction", bundle: nil)
         let onboardView = onboardStoryboard.instantiateViewController(identifier: "Instruction2") as! Instruction2ViewController
-        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.linear)
+        view.window!.layer.add(transition, forKey: kCATransition)
         onboardView.modalPresentationStyle = .fullScreen
-        self.present(onboardView, animated: true, completion: nil)
+        self.present(onboardView, animated: false, completion: nil)
     }
     
     @IBAction func pressedNext(_ sender: Any) {
@@ -34,6 +39,7 @@ class Instruction3ViewController: UIViewController {
         
         let MainARStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let MainARView = MainARStoryboard.instantiateViewController(identifier: "mainARView")
+        
         
         MainARView.modalPresentationStyle = .fullScreen
         self.present(MainARView, animated: true, completion: nil)
