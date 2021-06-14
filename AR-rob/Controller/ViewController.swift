@@ -64,7 +64,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "inputCard" {
+            if imageAnchor.referenceImage.name == "input" {
                 
                 let planeNodeGlucose = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -98,7 +98,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeMdri)
             }
             
-            if imageAnchor.referenceImage.name == "mdri" {
+            if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
