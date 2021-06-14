@@ -25,6 +25,11 @@ class CheatSheetViewController: UIViewController, UICollectionViewDelegate {
         let summaryNib = UINib(nibName: "\(SummaryCheatSheetCollectionViewCell.self)", bundle: nil)
         cheatSheetCollectionView.register(summaryNib, forCellWithReuseIdentifier: "SummaryCell")
     }
+    
+    @IBAction func closeCheatSheet(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension CheatSheetViewController: UICollectionViewDataSource{

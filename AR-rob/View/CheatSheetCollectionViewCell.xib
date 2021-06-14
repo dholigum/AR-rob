@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl2-gr-TTH">
-                                <rect key="frame" x="23" y="491" width="305" height="14"/>
+                                <rect key="frame" x="23" y="483" width="305" height="14"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Subtitle 2" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K33-dq-zJ0">
-                                <rect key="frame" x="23" y="292" width="305" height="44"/>
+                                <rect key="frame" x="23" y="284" width="305" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="GRG-TZ-E1U"/>
                                 </constraints>
@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQe-Nn-S2C">
-                                <rect key="frame" x="23" y="336" width="305" height="131"/>
+                                <rect key="frame" x="23" y="328" width="305" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="131" id="fKU-yB-JSp"/>
                                 </constraints>
@@ -85,7 +85,7 @@
                             <constraint firstItem="dpK-FJ-hdI" firstAttribute="leading" secondItem="258-dg-pnZ" secondAttribute="leading" id="VBX-OH-hsr"/>
                             <constraint firstItem="BkZ-aR-xYJ" firstAttribute="top" secondItem="dpK-FJ-hdI" secondAttribute="bottom" constant="16" id="Zwd-c5-nlO"/>
                             <constraint firstItem="BkZ-aR-xYJ" firstAttribute="top" secondItem="ERA-o4-R53" secondAttribute="top" constant="240" id="agY-Um-UYX"/>
-                            <constraint firstItem="K33-dq-zJ0" firstAttribute="top" secondItem="BkZ-aR-xYJ" secondAttribute="bottom" constant="8" id="bg2-4i-ECq"/>
+                            <constraint firstItem="K33-dq-zJ0" firstAttribute="top" secondItem="BkZ-aR-xYJ" secondAttribute="bottom" id="bg2-4i-ECq"/>
                             <constraint firstAttribute="trailing" secondItem="258-dg-pnZ" secondAttribute="trailing" constant="23" id="fRo-JB-KQe"/>
                             <constraint firstItem="258-dg-pnZ" firstAttribute="top" secondItem="ERA-o4-R53" secondAttribute="top" constant="23" id="i3n-NZ-gDp"/>
                             <constraint firstItem="jl2-gr-TTH" firstAttribute="top" secondItem="OQe-Nn-S2C" secondAttribute="bottom" constant="24" id="jGf-gZ-aMl"/>
