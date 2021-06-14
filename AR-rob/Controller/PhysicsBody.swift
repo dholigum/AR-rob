@@ -99,7 +99,6 @@ extension ViewController: SCNPhysicsContactDelegate {
                 attackerNode.physicsBody?.contactTestBitMask = 0
             }
         case BodyType.TEMachine.rawValue :
-            print("haduh")
             lastNode.physicsBody?.contactTestBitMask = BodyType.TEMachine.rawValue
             attackerNode.physicsBody?.contactTestBitMask = 0
             
