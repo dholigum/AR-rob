@@ -98,6 +98,10 @@ extension ViewController: SCNPhysicsContactDelegate {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = 0
             }
+        case BodyType.TEMachine.rawValue :
+            print("haduh")
+            lastNode.physicsBody?.contactTestBitMask = BodyType.TEMachine.rawValue
+            attackerNode.physicsBody?.contactTestBitMask = 0
             
         default:
             return
@@ -191,6 +195,24 @@ extension ViewController: SCNPhysicsContactDelegate {
                 }
             }
         }
+        
+        if targetNode.physicsBody?.categoryBitMask == BodyType.TEMachine.rawValue {
+            if let scene = SCNScene(named: "art.scnassets/6H2O.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "6H2O"
+                    sceneNode.position = SCNVector3(0.03, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+            
+            if let scene = SCNScene(named: "art.scnassets/34ATP.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "34ATP"
+                    sceneNode.position = SCNVector3(0, 0.03, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+        }
     }
     
     func moveChilds(node: SCNNode ,isATP: Bool) {
@@ -221,7 +243,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue, BodyType.SKMachine.rawValue:
+        case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue, BodyType.SKMachine.rawValue, BodyType.TEMachine.rawValue:
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
             

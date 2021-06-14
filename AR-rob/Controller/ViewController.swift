@@ -145,7 +145,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "mesinSK" {
                 let planeNodeSK = generatePlane(imageAnchor)
-//                setBasicPhysics(node: planeNodeSK, name: "mesinSK", category: BodyType.SKMachine.rawValue)
                 setAttackerPhysics(node: planeNodeSK, name: "mesinSK", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
                 
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
@@ -163,8 +162,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "mesinTE" {
                 let planeNodeTE = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeTE, name: "mesinTE", category: BodyType.TEMachine.rawValue)
-                
+                setAttackerPhysics(node: planeNodeTE, name: "mesinTE", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 cube.firstMaterial?.diffuse.contents = UIColor.blue
 
