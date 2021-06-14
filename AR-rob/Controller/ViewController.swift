@@ -16,7 +16,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var guidanceView: UIView!
     
     var lastNode: SCNNode!
-    var hasil: SCNNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +104,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let resultNode = createTransparentObject()
                 resultNode.name = "hasil"
                 planeNodeHasil.addChildNode(resultNode)
-                hasil = planeNodeHasil
                 node.addChildNode(planeNodeHasil)
             }
             
@@ -143,6 +141,42 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeDO)
                 
             }
+            
+            if imageAnchor.referenceImage.name == "mesinSK" {
+                let planeNodeSK = generatePlane(imageAnchor)
+//                setBasicPhysics(node: planeNodeSK, name: "mesinSK", category: BodyType.SKMachine.rawValue)
+                setAttackerPhysics(node: planeNodeSK, name: "mesinSK", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
+                
+                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
+                cube.firstMaterial?.diffuse.contents = UIColor.blue
+
+                let sphereNode = SCNNode(geometry: cube)
+                sphereNode.position = SCNVector3(0, 0, 0.03)
+                sphereNode.name = "mesinSK"
+                sphereNode.eulerAngles.x = .pi/4
+                planeNodeSK.addChildNode(sphereNode)
+                
+                node.addChildNode(planeNodeSK)
+                
+            }
+            
+            if imageAnchor.referenceImage.name == "mesinTE" {
+                let planeNodeTE = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeTE, name: "mesinTE", category: BodyType.TEMachine.rawValue)
+                
+                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
+                cube.firstMaterial?.diffuse.contents = UIColor.blue
+
+                let sphereNode = SCNNode(geometry: cube)
+                sphereNode.position = SCNVector3(0, 0, 0.03)
+                sphereNode.name = "mesinTE"
+                sphereNode.eulerAngles.x = .pi/4
+                planeNodeTE.addChildNode(sphereNode)
+                
+                node.addChildNode(planeNodeTE)
+                
+            }
+            
         }
         
         return node

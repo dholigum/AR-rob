@@ -61,7 +61,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 contactNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
             }
-           else if lastNode.physicsBody?.categoryBitMask == BodyType.GlucoseMachine.rawValue || lastNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
+           else {
                 
             guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
                 return
@@ -75,7 +75,8 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.Packaging.rawValue:
             moveChilds(node: attackerNode, isATP: true)
-        
+        case BodyType.SKMachine.rawValue :
+            lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
         default:
             return
         }
@@ -114,7 +115,23 @@ extension ViewController: SCNPhysicsContactDelegate {
             if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
+                    sceneNode.position = SCNVector3(-0.03, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+            
+            if let scene = SCNScene(named: "art.scnassets/2CO2.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "2CO2"
                     sceneNode.position = SCNVector3(0, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+            
+            if let scene = SCNScene(named: "art.scnassets/2NADH.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "2NADH"
+                    sceneNode.position = SCNVector3(0.025, 0, 0)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -124,6 +141,11 @@ extension ViewController: SCNPhysicsContactDelegate {
                 targetNode.addChildNode(child)
             }
             myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
+            print("msk")
+        }
+        
+        if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
+            print("haha")
         }
     }
     
@@ -133,14 +155,14 @@ extension ViewController: SCNPhysicsContactDelegate {
         
         if isATP {
             for child in lastNode.childNodes {
-                if child.name == "ATP" || child.name == "CO2" {
+                if child.name == "ATP" || child.name == "2CO2" {
                     selectedChilds.append(child)
                 }
             }
         }
         else {
             for child in lastNode.childNodes {
-                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "CO2" {
+                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "2CO2" {
                     selectedChilds.append(child)
                 }
             }
@@ -155,7 +177,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         var attackerNode: SCNNode!
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
-        case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue:
+        case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue, BodyType.SKMachine.rawValue:
                 contactNode = contact.nodeB
                 attackerNode = contact.nodeA
             
