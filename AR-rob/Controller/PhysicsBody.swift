@@ -61,6 +61,11 @@ extension ViewController: SCNPhysicsContactDelegate {
                 contactNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
             }
+           else if lastNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
+                for child in lastNode.childNodes {
+                    attackerNode.addChildNode(child)
+                }
+           }
            else {
                 
             guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
@@ -72,7 +77,10 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.Storage.rawValue:
             moveChilds(node: attackerNode, isATP: false)
-            
+            print(skDone)
+            if skDone {
+                attackerNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
+            }
         case BodyType.Packaging.rawValue:
             moveChilds(node: attackerNode, isATP: true)
             for child in attackerNode.childNodes {
@@ -90,6 +98,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = 0
             }
+            
         default:
             return
         }
@@ -157,6 +166,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
+            skDone = true
             if let scene = SCNScene(named: "art.scnassets/2FADH2.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2FADH2"

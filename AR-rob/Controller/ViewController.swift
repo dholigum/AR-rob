@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var guidanceView: UIView!
     
     var lastNode: SCNNode!
+    var skDone: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
