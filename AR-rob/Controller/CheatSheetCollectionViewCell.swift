@@ -14,6 +14,4 @@ class CheatSheetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cheatImage: UIImageView!
     @IBOutlet weak var cheatDetail: UITextView!
     @IBOutlet weak var summaryLabel: UILabel!
-    
-    
 }

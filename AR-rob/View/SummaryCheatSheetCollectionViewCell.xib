@@ -65,30 +65,46 @@ C6H12O6 + 6 O2 -&gt; 6 CO2 +6 H2O + 36ATP.</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="H14-Qs-oFI" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="1Pq-OY-e8r"/>
                             <constraint firstAttribute="bottom" secondItem="UPi-sM-Ecs" secondAttribute="bottom" constant="81" id="CiP-AC-Pmo"/>
-                            <constraint firstItem="H14-Qs-oFI" firstAttribute="leading" secondItem="bOb-2L-FM6" secondAttribute="leading" id="FsA-v9-1FG"/>
+                            <constraint firstItem="H14-Qs-oFI" firstAttribute="leading" secondItem="qvo-bi-ccM" secondAttribute="leading" id="FsA-v9-1FG"/>
                             <constraint firstItem="qvo-bi-ccM" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="GP4-8e-HBW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bOb-2L-FM6" secondAttribute="trailing" constant="23" id="Gdm-Lf-meX"/>
                             <constraint firstItem="qvo-bi-ccM" firstAttribute="top" secondItem="d50-2W-PD2" secondAttribute="firstBaseline" constant="23" id="JGO-Dz-gdg"/>
                             <constraint firstItem="qvo-bi-ccM" firstAttribute="leading" secondItem="d50-2W-PD2" secondAttribute="leadingMargin" constant="23" id="OlW-PJ-hQN"/>
+                            <constraint firstItem="UPi-sM-Ecs" firstAttribute="trailing" secondItem="qvo-bi-ccM" secondAttribute="trailing" id="UpC-SM-Y00"/>
                             <constraint firstItem="UPi-sM-Ecs" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="acs-Dr-h1R"/>
+                            <constraint firstItem="bOb-2L-FM6" firstAttribute="leading" secondItem="H14-Qs-oFI" secondAttribute="leading" id="gOA-Ul-sZw"/>
+                            <constraint firstItem="bOb-2L-FM6" firstAttribute="leading" secondItem="d50-2W-PD2" secondAttribute="leadingMargin" constant="23" id="jcv-gz-rWw"/>
+                            <constraint firstItem="UPi-sM-Ecs" firstAttribute="leading" secondItem="qvo-bi-ccM" secondAttribute="leading" id="jqs-vI-6g2"/>
                             <constraint firstItem="H14-Qs-oFI" firstAttribute="top" secondItem="qvo-bi-ccM" secondAttribute="bottom" constant="36" id="nIV-uR-p66"/>
                             <constraint firstItem="bOb-2L-FM6" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="ocW-he-mZG"/>
                             <constraint firstItem="bOb-2L-FM6" firstAttribute="top" secondItem="H14-Qs-oFI" secondAttribute="bottom" constant="16" id="oxR-Ox-VAB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qvo-bi-ccM" secondAttribute="trailing" constant="23" id="taY-J5-SF1"/>
                             <constraint firstItem="H14-Qs-oFI" firstAttribute="trailing" secondItem="qvo-bi-ccM" secondAttribute="trailing" id="vwv-L6-8Km"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="26"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.92941176469999998" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="d50-2W-PD2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UK8-76-9A4"/>
                 <constraint firstAttribute="bottom" secondItem="d50-2W-PD2" secondAttribute="bottom" id="YDN-HE-bJ1"/>
                 <constraint firstItem="d50-2W-PD2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hyE-FH-Ro4"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="26"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="136.15384615384616" y="152.48815165876778"/>
         </collectionViewCell>
     </objects>
