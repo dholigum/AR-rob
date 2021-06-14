@@ -75,8 +75,21 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.Packaging.rawValue:
             moveChilds(node: attackerNode, isATP: true)
+            for child in attackerNode.childNodes {
+                if child.name == "4CO2"{
+                    attackerNode.childNode(withName: "2CO2", recursively: false)?.removeFromParentNode()
+                }
+            }
         case BodyType.SKMachine.rawValue :
-            lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
+            
+            if lastNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
+                lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
+                attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+            }
+            else {
+                lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
+                attackerNode.physicsBody?.contactTestBitMask = 0
+            }
         default:
             return
         }
@@ -115,7 +128,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
-                    sceneNode.position = SCNVector3(-0.03, 0, 0)
+                    sceneNode.position = SCNVector3(0.03, 0, 0)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -123,7 +136,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             if let scene = SCNScene(named: "art.scnassets/2CO2.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2CO2"
-                    sceneNode.position = SCNVector3(0, 0, 0)
+                    sceneNode.position = SCNVector3(0, 0.03, 0)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -131,7 +144,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             if let scene = SCNScene(named: "art.scnassets/2NADH.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2NADH"
-                    sceneNode.position = SCNVector3(0.025, 0, 0)
+                    sceneNode.position = SCNVector3(-0.025, 0, 0)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -141,11 +154,32 @@ extension ViewController: SCNPhysicsContactDelegate {
                 targetNode.addChildNode(child)
             }
             myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
-            print("msk")
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
-            print("haha")
+            if let scene = SCNScene(named: "art.scnassets/2FADH2.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "2FADH2"
+                    sceneNode.position = SCNVector3(0.03, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+            
+            if let scene = SCNScene(named: "art.scnassets/4CO2.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "4CO2"
+                    sceneNode.position = SCNVector3(0, 0.03, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
+            
+            if let scene = SCNScene(named: "art.scnassets/6NADH.scn") {
+                if let sceneNode = scene.rootNode.childNodes.first {
+                    sceneNode.name = "6NADH"
+                    sceneNode.position = SCNVector3(-0.025, 0, 0)
+                    myNode.addChildNode(sceneNode)
+                }
+            }
         }
     }
     
@@ -155,14 +189,14 @@ extension ViewController: SCNPhysicsContactDelegate {
         
         if isATP {
             for child in lastNode.childNodes {
-                if child.name == "ATP" || child.name == "2CO2" {
+                if child.name == "ATP" || child.name == "2CO2" || child.name == "4CO2" {
                     selectedChilds.append(child)
                 }
             }
         }
         else {
             for child in lastNode.childNodes {
-                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "2CO2" {
+                if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "2CO2"  && child.name != "4CO2"{
                     selectedChilds.append(child)
                 }
             }
