@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "engineKrebCard.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "centimeters",
+    "width" : 6.8862676056338028
+  }
+}

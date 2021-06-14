@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "resultCard.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "centimeters",
+    "width" : 6.9530820824017887
+  }
+}
