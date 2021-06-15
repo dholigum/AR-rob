@@ -23,6 +23,7 @@
 		2F96435C266F197D005D9B32 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435B266F197D005D9B32 /* Onboarding.storyboard */; };
 		2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435D266F198D005D9B32 /* Instruction.storyboard */; };
 		2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99AFB12670654B00A58773 /* ThemeHelper.swift */; };
+		D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D20B39CB26784BDC00DB4F33 /* cards.pdf */; };
 		D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */; };
 		D267F2352671C93C00A71F9A /* Instruction3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */; };
 		F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F092C52670C193003B442F /* PhysicsBody.swift */; };
@@ -47,6 +48,7 @@
 		2F96435B266F197D005D9B32 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		2F96435D266F198D005D9B32 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		2F99AFB12670654B00A58773 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		D20B39CB26784BDC00DB4F33 /* cards.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cards.pdf; sourceTree = "<group>"; };
 		D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction2ViewController.swift; sourceTree = "<group>"; };
 		D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction3ViewController.swift; sourceTree = "<group>"; };
 		F7F092C52670C193003B442F /* PhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBody.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		2F964343266F1032005D9B32 /* AR-rob */ = {
 			isa = PBXGroup;
 			children = (
+				D20B39C826784AB000DB4F33 /* Files */,
 				19B0B46C2671AD40001C81BA /* Model */,
 				2F99AFB02670652D00A58773 /* Helper */,
 				2F964359266F18C5005D9B32 /* View */,
@@ -136,6 +139,14 @@
 				2F99AFB12670654B00A58773 /* ThemeHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		D20B39C826784AB000DB4F33 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				D20B39CB26784BDC00DB4F33 /* cards.pdf */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				19B0B4762671C2F5001C81BA /* CheatSheetCollectionViewCell.xib in Resources */,
 				19B0B4702671B232001C81BA /* CheatSheet.storyboard in Resources */,
 				2F96434E266F1033005D9B32 /* Assets.xcassets in Resources */,
+				D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */,
 				2F96434C266F1032005D9B32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKF8ACHM24;
+				DEVELOPMENT_TEAM = SB885LAGT7;
 				INFOPLIST_FILE = "AR-rob/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKF8ACHM24;
+				DEVELOPMENT_TEAM = SB885LAGT7;
 				INFOPLIST_FILE = "AR-rob/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
