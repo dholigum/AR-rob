@@ -11,14 +11,12 @@ class OnboardViewController: UIViewController {
 
     @IBOutlet weak var exploreButton: UIButton!
     @IBOutlet weak var instructionButton: UIButton!
+    @IBOutlet weak var exploreButtonView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        exploreButton.backgroundColor = UIColor(hexaString: "#008B74")
-        exploreButton.layer.cornerRadius = 29
-        exploreButton.tintColor = .white
+        exploreButtonView.layer.cornerRadius = 29
         
     }
     
