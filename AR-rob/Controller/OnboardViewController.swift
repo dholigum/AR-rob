@@ -17,7 +17,6 @@ class OnboardViewController: UIViewController {
         super.viewDidLoad()
 
         exploreButtonView.layer.cornerRadius = 29
-        
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
