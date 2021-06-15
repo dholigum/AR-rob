@@ -21,6 +21,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         guidanceView.layer.cornerRadius = 24.5
+        guidanceView.alpha = 0.0
+        
         // Set the view's delegate
         sceneView.delegate = self
         
