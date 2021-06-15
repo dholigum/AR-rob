@@ -67,7 +67,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 }
            }
            else {
-                
+            
+            machineType(target: lastNode)
+            
             guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
                 return
             }
@@ -77,7 +79,8 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.Storage.rawValue:
             moveChilds(node: attackerNode, isATP: false)
-            print(skDone)
+            changeGuidanceLabel("Dekatkan kartu hasil kebagian kiri kartu Input")
+            
             if skDone {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
             }
@@ -88,6 +91,8 @@ extension ViewController: SCNPhysicsContactDelegate {
                     attackerNode.childNode(withName: "2CO2", recursively: false)?.removeFromParentNode()
                 }
             }
+            changeGuidanceLabel("Dekatkan kartu Storage kebagian kanan kartu Hasil")
+            
         case BodyType.SKMachine.rawValue :
             
             if lastNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
@@ -134,6 +139,8 @@ extension ViewController: SCNPhysicsContactDelegate {
             boxNode.name = "NADH"
             boxNode.position = SCNVector3(0.025, 0, 0)
             myNode.addChildNode(boxNode)
+            
+            changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
@@ -160,7 +167,10 @@ extension ViewController: SCNPhysicsContactDelegate {
                     myNode.addChildNode(sceneNode)
                 }
             }
+            
+            changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
+        
         if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
             for child in myNode.childNodes {
                 targetNode.addChildNode(child)
@@ -193,6 +203,8 @@ extension ViewController: SCNPhysicsContactDelegate {
                     myNode.addChildNode(sceneNode)
                 }
             }
+            
+            changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.TEMachine.rawValue {
@@ -211,6 +223,27 @@ extension ViewController: SCNPhysicsContactDelegate {
                     myNode.addChildNode(sceneNode)
                 }
             }
+            
+            changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
+        }
+    }
+    
+    func machineType(target: SCNNode) {
+        switch target.physicsBody?.categoryBitMask {
+        case BodyType.GlucoseMachine.rawValue:
+            changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Glikolisis")
+            
+        case BodyType.DOMachine.rawValue:
+            changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Dekarboksilasi")
+        
+        case BodyType.SKMachine.rawValue:
+            changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Krebs")
+            
+        case BodyType.TEMachine.rawValue:
+            changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Transport Elektron")
+            
+        default:
+            changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Glikolisis")
         }
     }
     

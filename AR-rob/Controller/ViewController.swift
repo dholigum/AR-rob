@@ -10,16 +10,18 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
+    
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var guidanceView: UIView!
+    @IBOutlet weak var guidanceLabel: UILabel!
     
     var lastNode: SCNNode!
     var skDone: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guidanceView.layer.cornerRadius = 24.5
         guidanceView.alpha = 0.0
         
@@ -33,7 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.tintColor = .white
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             configuration.maximumNumberOfTrackedImages = 8
             
         }
-
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -66,7 +68,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "input" {
+            if imageAnchor.referenceImage.name == "inputCard" {
                 
                 let planeNodeGlucose = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -84,13 +86,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             if imageAnchor.referenceImage.name == "engineGlikolisisCard"{
-                            
+                
                 let planeNodeMdri = generatePlane(imageAnchor)
                 setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-
+                
                 let sphere = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 sphere.firstMaterial?.diffuse.contents = UIColor.blue
-
+                
                 let sphereNode = SCNNode(geometry: sphere)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
                 sphereNode.name = "glucoseMachine"
@@ -100,7 +102,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNodeMdri)
             }
             
-            if imageAnchor.referenceImage.name == "hasil" {
+            if imageAnchor.referenceImage.name == "mdri" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -134,7 +136,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 cube.firstMaterial?.diffuse.contents = UIColor.blue
-
+                
                 let sphereNode = SCNNode(geometry: cube)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
                 sphereNode.name = "mesinDO"
@@ -151,7 +153,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 cube.firstMaterial?.diffuse.contents = UIColor.blue
-
+                
                 let sphereNode = SCNNode(geometry: cube)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
                 sphereNode.name = "mesinSK"
@@ -167,7 +169,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 setAttackerPhysics(node: planeNodeTE, name: "mesinTE", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
                 let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
                 cube.firstMaterial?.diffuse.contents = UIColor.blue
-
+                
                 let sphereNode = SCNNode(geometry: cube)
                 sphereNode.position = SCNVector3(0, 0, 0.03)
                 sphereNode.name = "mesinTE"
@@ -184,15 +186,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func createTransparentObject() -> SCNNode{
-            let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
-            let material = SCNMaterial()
-            material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 0)
-            box.materials = [material]
-            let boxNode = SCNNode(geometry: box)
-            boxNode.position = SCNVector3(0, 0, 0.03)
-            
-            return boxNode
-        }
+        let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor(hexaString: "#ffffff", alpha: 0)
+        box.materials = [material]
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = SCNVector3(0, 0, 0.03)
+        
+        return boxNode
+    }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         
@@ -201,7 +203,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         onboardView.modalPresentationStyle = .fullScreen
         self.present(onboardView, animated: true, completion: nil)
-
+        
     }
     
     func generatePlane(_ imageAnchor: ARImageAnchor) -> SCNNode {
@@ -216,5 +218,4 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         return planeNode
     }
-    
 }
