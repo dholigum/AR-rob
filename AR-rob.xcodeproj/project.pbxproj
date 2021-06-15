@@ -222,11 +222,8 @@
 				19B0B4762671C2F5001C81BA /* CheatSheetCollectionViewCell.xib in Resources */,
 				19B0B4702671B232001C81BA /* CheatSheet.storyboard in Resources */,
 				2F96434E266F1033005D9B32 /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
 				D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */,
-=======
 				19B8DC222676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib in Resources */,
->>>>>>> 8277c2490e9bda1693b4f6f87afeee210c1a7006
 				2F96434C266F1032005D9B32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
