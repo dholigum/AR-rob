@@ -17,6 +17,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var lastNode: SCNNode!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guidanceView.layer.cornerRadius = 24.5

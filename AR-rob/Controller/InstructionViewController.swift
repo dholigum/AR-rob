@@ -13,7 +13,6 @@ class InstructionViewController: UIViewController {
     
     @IBOutlet weak var printBtn: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +22,10 @@ class InstructionViewController: UIViewController {
         //backToOnboardButton.tintColor = .black
         
         printBtn.layer.cornerRadius = 10
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     @IBAction func backToOnboardPressed(_ sender: UIButton) {

@@ -20,6 +20,10 @@ class OnboardViewController: UIViewController {
         
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBAction func toMainARPage(_ sender: UIButton) {
         
         let isNotFirstApp = UserDefaults.standard.bool(forKey: "isNotFirstApp")
