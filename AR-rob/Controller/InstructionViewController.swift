@@ -46,6 +46,10 @@ class InstructionViewController: UIViewController, URLSessionDelegate {
         onboardView.modalPresentationStyle = .fullScreen
         self.present(onboardView, animated: false, completion: nil)
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBAction func backToOnboardPressed(_ sender: UIButton) {
         
         let onboardStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
