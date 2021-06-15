@@ -12,9 +12,6 @@
 		19B0B4722671C0CC001C81BA /* CheatSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B4712671C0CC001C81BA /* CheatSheetViewController.swift */; };
 		19B0B4752671C2F5001C81BA /* CheatSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B4732671C2F5001C81BA /* CheatSheetCollectionViewCell.swift */; };
 		19B0B4762671C2F5001C81BA /* CheatSheetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B0B4742671C2F5001C81BA /* CheatSheetCollectionViewCell.xib */; };
-		19B8DC212676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8DC1F2676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.swift */; };
-		19B8DC222676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B8DC202676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib */; };
-		19E492B1267311DA00C6AF57 /* UICustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E492B0267311DA00C6AF57 /* UICustom.swift */; };
 		2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C302266F22A600F10A62 /* OnboardViewController.swift */; };
 		2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F54C304266F28E000F10A62 /* InstructionViewController.swift */; };
 		2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964344266F1032005D9B32 /* AppDelegate.swift */; };
@@ -26,6 +23,7 @@
 		2F96435C266F197D005D9B32 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435B266F197D005D9B32 /* Onboarding.storyboard */; };
 		2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435D266F198D005D9B32 /* Instruction.storyboard */; };
 		2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99AFB12670654B00A58773 /* ThemeHelper.swift */; };
+		D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D20B39CB26784BDC00DB4F33 /* cards.pdf */; };
 		D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */; };
 		D267F2352671C93C00A71F9A /* Instruction3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */; };
 		F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F092C52670C193003B442F /* PhysicsBody.swift */; };
@@ -37,9 +35,6 @@
 		19B0B4712671C0CC001C81BA /* CheatSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetViewController.swift; sourceTree = "<group>"; };
 		19B0B4732671C2F5001C81BA /* CheatSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetCollectionViewCell.swift; sourceTree = "<group>"; };
 		19B0B4742671C2F5001C81BA /* CheatSheetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheatSheetCollectionViewCell.xib; sourceTree = "<group>"; };
-		19B8DC1F2676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCheatSheetCollectionViewCell.swift; sourceTree = "<group>"; };
-		19B8DC202676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCheatSheetCollectionViewCell.xib; sourceTree = "<group>"; };
-		19E492B0267311DA00C6AF57 /* UICustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustom.swift; sourceTree = "<group>"; };
 		2F54C302266F22A600F10A62 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		2F54C304266F28E000F10A62 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		2F964341266F1032005D9B32 /* AR-rob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-rob.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +48,7 @@
 		2F96435B266F197D005D9B32 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		2F96435D266F198D005D9B32 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		2F99AFB12670654B00A58773 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
+		D20B39CB26784BDC00DB4F33 /* cards.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cards.pdf; sourceTree = "<group>"; };
 		D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction2ViewController.swift; sourceTree = "<group>"; };
 		D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction3ViewController.swift; sourceTree = "<group>"; };
 		F7F092C52670C193003B442F /* PhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBody.swift; sourceTree = "<group>"; };
@@ -96,6 +92,7 @@
 		2F964343266F1032005D9B32 /* AR-rob */ = {
 			isa = PBXGroup;
 			children = (
+				D20B39C826784AB000DB4F33 /* Files */,
 				19B0B46C2671AD40001C81BA /* Model */,
 				2F99AFB02670652D00A58773 /* Helper */,
 				2F964359266F18C5005D9B32 /* View */,
@@ -111,7 +108,6 @@
 		2F964358266F185F005D9B32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				19B8DC1F2676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.swift */,
 				19B0B4732671C2F5001C81BA /* CheatSheetCollectionViewCell.swift */,
 				2F964348266F1032005D9B32 /* ViewController.swift */,
 				2F54C302266F22A600F10A62 /* OnboardViewController.swift */,
@@ -133,7 +129,6 @@
 				2F96435D266F198D005D9B32 /* Instruction.storyboard */,
 				19B0B46F2671B232001C81BA /* CheatSheet.storyboard */,
 				19B0B4742671C2F5001C81BA /* CheatSheetCollectionViewCell.xib */,
-				19B8DC202676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,9 +137,16 @@
 			isa = PBXGroup;
 			children = (
 				2F99AFB12670654B00A58773 /* ThemeHelper.swift */,
-				19E492B0267311DA00C6AF57 /* UICustom.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		D20B39C826784AB000DB4F33 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				D20B39CB26784BDC00DB4F33 /* cards.pdf */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +213,7 @@
 				19B0B4762671C2F5001C81BA /* CheatSheetCollectionViewCell.xib in Resources */,
 				19B0B4702671B232001C81BA /* CheatSheet.storyboard in Resources */,
 				2F96434E266F1033005D9B32 /* Assets.xcassets in Resources */,
-				19B8DC222676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.xib in Resources */,
+				D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */,
 				2F96434C266F1032005D9B32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,12 +228,10 @@
 				2F964349266F1032005D9B32 /* ViewController.swift in Sources */,
 				2F964345266F1032005D9B32 /* AppDelegate.swift in Sources */,
 				2F54C303266F22A600F10A62 /* OnboardViewController.swift in Sources */,
-				19B8DC212676F15600E4AAF0 /* SummaryCheatSheetCollectionViewCell.swift in Sources */,
 				2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */,
 				D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */,
 				2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */,
 				19B0B46E2671AD58001C81BA /* CheatSheetMaterial.swift in Sources */,
-				19E492B1267311DA00C6AF57 /* UICustom.swift in Sources */,
 				19B0B4722671C0CC001C81BA /* CheatSheetViewController.swift in Sources */,
 				19B0B4752671C2F5001C81BA /* CheatSheetCollectionViewCell.swift in Sources */,
 				F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */,
@@ -383,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 282R274LXF;
+				DEVELOPMENT_TEAM = UFNNYX499Q;
 				INFOPLIST_FILE = "AR-rob/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -402,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 282R274LXF;
+				DEVELOPMENT_TEAM = UFNNYX499Q;
 				INFOPLIST_FILE = "AR-rob/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
