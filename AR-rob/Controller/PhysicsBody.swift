@@ -98,6 +98,8 @@ extension ViewController: SCNPhysicsContactDelegate {
             if lastNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+                
+                changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Transport Elektron")
             }
             else {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
@@ -171,13 +173,6 @@ extension ViewController: SCNPhysicsContactDelegate {
             changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
         
-        if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
-            for child in myNode.childNodes {
-                targetNode.addChildNode(child)
-            }
-            myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
-        }
-        
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
             skDone = true
             if let scene = SCNScene(named: "art.scnassets/2FADH2.scn") {
@@ -225,6 +220,19 @@ extension ViewController: SCNPhysicsContactDelegate {
             }
             
             changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
+        }
+        
+        if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
+            for child in myNode.childNodes {
+                targetNode.addChildNode(child)
+            }
+            myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
+            
+            /// flag to inform DO process already done
+            if !doDone {
+                changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Dekarboksilasi")
+                doDone = true
+            }
         }
     }
     

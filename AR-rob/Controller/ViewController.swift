@@ -18,6 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var lastNode: SCNNode!
     var skDone: Bool = false
+    var doDone: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
