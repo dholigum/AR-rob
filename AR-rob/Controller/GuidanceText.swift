@@ -23,6 +23,14 @@ extension ViewController {
         }
     }
     
+    func disappearGuidanceLabel() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 2, animations: {
+                self.guidanceView.alpha = 0.0
+            })
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 2, animations: {
             self.guidanceView.alpha = 1.0
