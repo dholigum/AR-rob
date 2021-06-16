@@ -288,10 +288,6 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
     }
     
-    func setNextMachineLabel(index: Int) {
-        
-    }
-    
     func setContactNode(contact: SCNPhysicsContact) -> (contactNode: SCNNode, attackerNode: SCNNode) {
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
