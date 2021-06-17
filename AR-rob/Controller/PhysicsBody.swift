@@ -57,7 +57,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         switch attackerNode.physicsBody?.categoryBitMask {
         case BodyType.Result.rawValue:
             attackMachine(myNode: attackerNode, targetNode: contactNode)
-            
+
             if contactNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Storage.rawValue
             }
@@ -83,17 +83,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
                 return
             }
-            else {
-                
-                machineType(target: lastNode)
-                
-                guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
-                    return
-                }
-                child.geometry?.materials = [material]
-                //lastNode.removeAction(forKey: "rotateForever")
-                //removeChild(node: attackerNode)
-            }
+           }
             
         case BodyType.Storage.rawValue:
             moveChilds(node: attackerNode, isATP: false)
@@ -307,7 +297,6 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.DOMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Dekarboksilasi")
-            
             changingMachineStatics(planeNode: planeNodeDO, machineScene: &doMachineScene, machineNode: doMachine, assetDir: "art.scnassets/mesinGerak3.scn")
         
         case BodyType.SKMachine.rawValue:
