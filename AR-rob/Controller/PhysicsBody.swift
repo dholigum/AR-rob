@@ -164,6 +164,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
+            mesinDO = true
             if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
@@ -205,6 +206,10 @@ extension ViewController: SCNPhysicsContactDelegate {
                 targetNode.addChildNode(child)
             }
             myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
+            if mesinDO {
+                myNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
+                mesinDO = false
+            }
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {

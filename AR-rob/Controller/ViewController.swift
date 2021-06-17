@@ -19,6 +19,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var lastNode: SCNNode!
     var skDone: Bool = false
     
+    var mesinDO: Bool = falseß
+    
     var firstNode : SCNNode!
     
     //komponen Glikolisis
