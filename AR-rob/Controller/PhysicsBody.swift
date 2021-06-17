@@ -41,14 +41,14 @@ extension ViewController: SCNPhysicsContactDelegate {
         attackerNode = getContact.attackerNode
         
         
-//        if self.lastNode != nil && self.lastNode == contactNode && (self.firstNode == attackerNode || self.firstNode == contactNode)  {
+        if self.lastNode != nil && self.lastNode == contactNode && (self.firstNode == attackerNode || self.firstNode == contactNode)  {
+            //print("\(attackerNode.name!) => \(contactNode.name!)")
+            return
+        }
+//        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue  {
 //            print("\(attackerNode.name!) => \(contactNode.name!)")
 //            return
 //        }
-        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue  {
-            print("\(attackerNode.name!) => \(contactNode.name!)")
-            return
-        }
         
         print("\(attackerNode.name!) = \(contactNode.name!)")
         self.lastNode = contactNode
@@ -129,7 +129,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let piruvateNode = piruvatScene.rootNode.childNodes.first {
                     piruvateNode.name = "piruvat"
                     piruvateNode.position = SCNVector3(-0.03, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     piruvateNode.runAction(rotateForever)
                     myNode.addChildNode(piruvateNode)
@@ -140,7 +140,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let atpNode = atpScene.rootNode.childNodes.first {
                     atpNode.name = "ATP"
                     atpNode.position = SCNVector3(0, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     atpNode.runAction(rotateForever)
                     myNode.addChildNode(atpNode)
@@ -154,7 +154,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             let boxNode = SCNNode(geometry: box)
             boxNode.name = "NADH"
             boxNode.position = SCNVector3(0.025, 0, 0)
-            let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+            let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
             let rotateForever = SCNAction.repeatForever(rotateAction)
             boxNode.runAction(rotateForever)
             myNode.addChildNode(boxNode)
@@ -165,12 +165,11 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
-            mesinDO = true
             if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -181,7 +180,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2CO2"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -192,7 +191,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2NADH"
                     sceneNode.position = SCNVector3(-0.025, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -207,10 +206,6 @@ extension ViewController: SCNPhysicsContactDelegate {
                 targetNode.addChildNode(child)
             }
             myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
-            if mesinDO {
-                myNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
-                mesinDO = false
-            }
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
@@ -219,7 +214,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2FADH2"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 20)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -230,7 +225,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "4CO2"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -241,7 +236,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "6NADH"
                     sceneNode.position = SCNVector3(-0.025, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -256,7 +251,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "6H2O"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -267,7 +262,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "34ATP"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
-                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
                     let rotateForever = SCNAction.repeatForever(rotateAction)
                     sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
@@ -361,7 +356,7 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
 
     var removeAction: SCNAction {
-        return .sequence([.wait(duration: 1.5), .fadeOut(duration: 1.0), .removeFromParentNode()])
+        return .sequence([.wait(duration: 0.5), .fadeOut(duration: 0.5), .removeFromParentNode()])
     }
     
     func setAttackerPhysics(node: SCNNode, name: String, attacker: Int, target: Int) {

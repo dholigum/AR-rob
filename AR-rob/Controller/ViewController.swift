@@ -19,8 +19,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var lastNode: SCNNode!
     var skDone: Bool = false
     
-    var mesinDO: Bool = falseß
-    
     var firstNode : SCNNode!
     
     //komponen Glikolisis
@@ -173,7 +171,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "engineKrebCard" {
                 planeNodeKrebs = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeKrebs, name: "krebsMachine", category: BodyType.SKMachine.rawValue)
+                setAttackerPhysics(node: planeNodeKrebs, name: "krebsMachine", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
                 krebsMachineScene = SCNScene(named: "art.scnassets/mesinStatic2.scn")
                 krebsMachine = krebsMachineScene.rootNode.childNodes.first
                 krebsMachine.name = "glucose"
@@ -184,7 +182,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "engineTECard" {
                 planeNodeTE = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeTE, name: "krebsMachine", category: BodyType.SKMachine.rawValue)
+                setAttackerPhysics(node: planeNodeTE, name: "teMachine", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
                 teMachineScene = SCNScene(named: "art.scnassets/mesinStatic4.scn")
                 teMachine = teMachineScene.rootNode.childNodes.first
                 teMachine.name = "te"
