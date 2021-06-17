@@ -48,6 +48,7 @@ extension CheatSheetViewController: UICollectionViewDataSource{
             cell.cheatDetail.text = "\(cheatSheetMaterial[indexPath.row].materialDetail)"
             cell.cheatDetail.textContainer.lineFragmentPadding = 0
             cell.summaryLabel.text = "\(cheatSheetMaterial[indexPath.row].materialQuickSummary)"
+            cell.cheatImage.image  = UIImage(named: cheatSheetMaterial[indexPath.row].materialImageName)
         
             return cell
         }
