@@ -42,13 +42,8 @@ extension ViewController: SCNPhysicsContactDelegate {
         
         
         if (self.lastNode != nil && self.lastNode == contactNode && (self.firstNode == attackerNode || self.firstNode == contactNode)) || machineState == 5 {
-            //print("\(attackerNode.name!) => \(contactNode.name!)")
             return
         }
-//        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue  {
-//            print("\(attackerNode.name!) => \(contactNode.name!)")
-//            return
-//        }
         
         print("\(attackerNode.name!) = \(contactNode.name!)")
         self.lastNode = contactNode
@@ -95,14 +90,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             }
         case BodyType.Packaging.rawValue:
             if machineState == 4{
-                for child in attackerNode.childNodes{
-                    if child.name == "ATP" {
-                        child.removeFromParentNode()
-                    }
-                }
-                print("\(lastNode.childNodes)")
-                changeNodes(assetDirNewNode: "art.scnassets/38ATP.scn", packagedNode: lastNode.childNode(withName: "34ATP", recursively: false)!, nodeName: "38ATP")
-                lastNode.childNode(withName: "38ATP", recursively: false)?.position = SCNVector3(0.03, 0, 0)
+                finalResult()
                 machineState = 5
                 return
             }
@@ -112,7 +100,12 @@ extension ViewController: SCNPhysicsContactDelegate {
                     let COScene = SCNScene(named: "art.scnassets/6CO2.scn")
                     let newCO = COScene?.rootNode.childNodes.first
                     newCO?.name = "6CO2"
+                    newCO?.position = SCNVector3(-0.03, 0.01, 0)
                     attackerNode.replaceChildNode(child, with: newCO!)
+                    child.removeFromParentNode()
+                }
+                if child.name == "4CO2" && skDone {
+                    child.removeFromParentNode()
                 }
             }
             changeGuidanceLabel("Dekatkan kartu Storage kebagian kanan kartu Hasil")
@@ -402,13 +395,28 @@ extension ViewController: SCNPhysicsContactDelegate {
         planeNode.replaceChildNode(machineNode, with: gerakMachine ?? machineNode)
     }
     
-    func changeNodes(assetDirNewNode: String, packagedNode: SCNNode, nodeName: String){
-        let newScene = SCNScene(named:assetDirNewNode)
-        let newCO = newScene?.rootNode.childNodes.first
-        packagedNode.replaceChildNode(packagedNode, with: newCO!)
-        packagedNode.name = nodeName
-        moveChilds(node: firstNode, isATP: true)
-        print("\(nodeName)")
+    func finalResult() {
+        for child in firstNode.childNodes {
+            if child.name == "ATP" {
+                child.removeFromParentNode()
+            }
+        }
+        for child in lastNode.childNodes {
+            if child.name == "6H2O" {
+                child.position = SCNVector3(0.03, 0, 0)
+                firstNode.addChildNode(child)
+            }
+            else {
+                child.removeFromParentNode()
+            }
+        }
+        if let atpScene = SCNScene(named: "art.scnassets/38ATP.scn") {
+            if let atpNode = atpScene.rootNode.childNodes.first {
+                atpNode.name = "38ATP"
+                atpNode.position = SCNVector3(0, 0.04, 0)
+                firstNode.addChildNode(atpNode)
+            }
+        }
     }
 
 }
