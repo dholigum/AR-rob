@@ -34,6 +34,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.yellow
         
+        
 
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
