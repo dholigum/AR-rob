@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,16 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="instructionView" id="Y6W-OH-hqX" customClass="InstructionViewController" customModule="AR_rob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="printImage" translatesAutoresizingMaskIntoConstraints="NO" id="bQd-MT-uUq">
-                                <rect key="frame" x="48" y="281" width="295" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="printImage" translatesAutoresizingMaskIntoConstraints="NO" id="bQd-MT-uUq">
+                                <rect key="frame" x="51" y="245" width="313" height="303"/>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-tu-5Pd">
-                                <rect key="frame" x="100" y="150" width="193" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-tu-5Pd">
+                                <rect key="frame" x="117" y="118" width="226" height="4"/>
                                 <color key="backgroundColor" red="0.72089475390000002" green="0.84843677279999996" blue="0.8084848523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" name="mainColor"/>
                             </progressView>
@@ -39,10 +37,13 @@
                                     <action selector="backToOnboardPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xUZ-PU-5kC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB0-0b-EVA">
-                                <rect key="frame" x="115" y="639" width="163" height="45"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB0-0b-EVA">
+                                <rect key="frame" x="133" y="418" width="148" height="32"/>
                                 <color key="backgroundColor" name="mainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="YuI-HR-o3V"/>
+                                    <constraint firstAttribute="height" constant="43" id="f9s-xV-FSp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -51,16 +52,17 @@
                                     <action selector="printPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YHN-Ui-mWD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Untuk memulai belajar dengan AR-Rob, harap cetak kartu yang diberikan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-hP-iaI">
-                                <rect key="frame" x="53" y="178" width="284" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Untuk memulai belajar dengan AR-Rob, harap cetak kartu yang diberikan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-hP-iaI">
+                                <rect key="frame" x="56" y="155" width="302" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="uUd-9N-17x"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" name="mainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6Y-lY-MnI">
-                                <rect key="frame" x="271" y="716" width="94" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6Y-lY-MnI">
+                                <rect key="frame" x="293" y="653" width="93" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 <state key="normal" title="Next">
@@ -73,6 +75,20 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gB0-0b-EVA" secondAttribute="bottom" constant="126" id="284-YM-vGk"/>
+                            <constraint firstItem="3B8-hP-iaI" firstAttribute="top" secondItem="oyj-tu-5Pd" secondAttribute="bottom" constant="23" id="B74-jA-MjR"/>
+                            <constraint firstItem="3B8-hP-iaI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="171" id="C4l-L3-Iy9"/>
+                            <constraint firstItem="gB0-0b-EVA" firstAttribute="centerX" secondItem="bQd-MT-uUq" secondAttribute="centerX" id="EOo-tr-TZ3"/>
+                            <constraint firstItem="bQd-MT-uUq" firstAttribute="top" secondItem="3B8-hP-iaI" secondAttribute="bottom" constant="4" id="ElA-Y2-meV"/>
+                            <constraint firstItem="gB0-0b-EVA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OKT-70-SFK"/>
+                            <constraint firstItem="gB0-0b-EVA" firstAttribute="top" secondItem="bQd-MT-uUq" secondAttribute="bottom" constant="4" id="P2x-7v-JaC"/>
+                            <constraint firstItem="gB0-0b-EVA" firstAttribute="centerX" secondItem="3B8-hP-iaI" secondAttribute="centerX" id="RF7-dN-A6i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oyj-tu-5Pd" secondAttribute="trailing" constant="71" id="UmG-vI-6ru"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G6Y-lY-MnI" secondAttribute="bottom" constant="54" id="cJN-YJ-TNj"/>
+                            <constraint firstItem="oyj-tu-5Pd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="117" id="qd2-WA-1Ps"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G6Y-lY-MnI" secondAttribute="trailing" constant="28" id="uEL-VL-wE9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="nextBtn" destination="G6Y-lY-MnI" id="4O6-RH-0he"/>
@@ -88,22 +104,21 @@
             <objects>
                 <viewController storyboardIdentifier="Instruction2" id="QWX-NB-cCc" customClass="Instruction2ViewController" customModule="AR_rob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uGn-mi-QA1">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.66000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="6X0-tv-HxE">
-                                <rect key="frame" x="99" y="150" width="193" height="4"/>
+                                <rect key="frame" x="105" y="131" width="205" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72089475390000002" green="0.84843677279999996" blue="0.8084848523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" name="mainColor"/>
                             </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pointCamera" translatesAutoresizingMaskIntoConstraints="NO" id="RIg-Hk-6SC">
-                                <rect key="frame" x="55" y="293" width="280" height="329"/>
+                                <rect key="frame" x="55" y="256" width="304" height="286"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5H-fK-6f7">
-                                <rect key="frame" x="271" y="716" width="94" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5H-fK-6f7">
+                                <rect key="frame" x="303" y="500" width="93" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="tintColor" name="mainColor"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -127,7 +142,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arahkan kamera ke kartu untuk melihat gambar AR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="E0d-cU-r6g">
-                                <rect key="frame" x="49" y="179" width="292" height="99"/>
+                                <rect key="frame" x="49" y="156" width="316" height="86"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" name="mainColor"/>
@@ -136,6 +151,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oah-lx-xz8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oah-lx-xz8" firstAttribute="trailing" secondItem="L5H-fK-6f7" secondAttribute="trailing" constant="18" id="BHZ-I5-gKm"/>
+                            <constraint firstItem="oah-lx-xz8" firstAttribute="bottom" secondItem="L5H-fK-6f7" secondAttribute="bottom" constant="54" id="Lit-rf-ngt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qlv-jW-F0x"/>
                 </viewController>
@@ -148,22 +167,21 @@
             <objects>
                 <viewController storyboardIdentifier="Instruction3" id="47t-xZ-Njz" customClass="Instruction3ViewController" customModule="AR_rob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sg5-vh-kID">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="958-2c-kpN">
-                                <rect key="frame" x="99" y="149" width="193" height="4"/>
+                                <rect key="frame" x="105" y="130" width="205" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72089475390000002" green="0.84843677279999996" blue="0.8084848523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" name="mainColor"/>
                             </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="moveCard" translatesAutoresizingMaskIntoConstraints="NO" id="hoo-o3-Gov">
-                                <rect key="frame" x="60" y="316" width="270" height="316"/>
+                                <rect key="frame" x="60" y="276" width="294" height="275"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiE-pd-ZqR">
-                                <rect key="frame" x="208" y="714" width="175" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiE-pd-ZqR">
+                                <rect key="frame" x="242" y="501" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="tintColor" name="mainColor"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -174,7 +192,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gerakkan kartu sesuai dengan perintah yang diberikan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-bo-HXF">
-                                <rect key="frame" x="49" y="193" width="292" height="72"/>
+                                <rect key="frame" x="49" y="168" width="316" height="63"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" name="mainColor"/>
@@ -196,6 +214,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1uc-f5-8KT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1uc-f5-8KT" firstAttribute="bottom" secondItem="HiE-pd-ZqR" secondAttribute="bottom" constant="54" id="WqA-pH-idW"/>
+                            <constraint firstItem="1uc-f5-8KT" firstAttribute="trailing" secondItem="HiE-pd-ZqR" secondAttribute="trailing" constant="18" id="wfE-kG-3KZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6K0-Ua-G7m"/>
                 </viewController>
