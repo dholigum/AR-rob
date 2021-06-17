@@ -27,13 +27,13 @@ extension ViewController: SCNPhysicsContactDelegate {
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-
+        
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.yellow
         
-
+        
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
@@ -57,22 +57,23 @@ extension ViewController: SCNPhysicsContactDelegate {
             }
             
         case BodyType.Input.rawValue:
-           if contactNode.physicsBody?.categoryBitMask == BodyType.Result.rawValue {
+            if contactNode.physicsBody?.categoryBitMask == BodyType.Result.rawValue {
                 contactNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
             }
-           else if lastNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
+            else if lastNode.physicsBody?.categoryBitMask == BodyType.Storage.rawValue {
                 for child in lastNode.childNodes {
                     attackerNode.addChildNode(child)
                 }
-           }
-           else {
-            
-            machineType(target: lastNode)
-            
-            guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
-                return
+                changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Transport Elektron")
             }
+            else {
+                
+                machineType(target: lastNode)
+                
+                guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
+                    return
+                }
                 child.geometry?.materials = [material]
                 removeChild(node: attackerNode)
             }
@@ -83,6 +84,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             
             if skDone {
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Input.rawValue
+                changeGuidanceLabel("Dekatkan kartu Storange kebagian kiri kartu Input")
             }
         case BodyType.Packaging.rawValue:
             moveChilds(node: attackerNode, isATP: true)
@@ -98,6 +100,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             if lastNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
                 attackerNode.physicsBody?.contactTestBitMask = BodyType.Result.rawValue
+                
             }
             else {
                 lastNode.physicsBody?.contactTestBitMask = BodyType.SKMachine.rawValue
@@ -144,6 +147,8 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.DOMachine.rawValue {
+            machineState = 2
+            
             if let scene = SCNScene(named: "art.scnassets/2asetilKoA.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
@@ -171,15 +176,9 @@ extension ViewController: SCNPhysicsContactDelegate {
             changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
         
-        if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
-            for child in myNode.childNodes {
-                targetNode.addChildNode(child)
-            }
-            myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
-        }
-        
         if targetNode.physicsBody?.categoryBitMask == BodyType.SKMachine.rawValue {
             skDone = true
+            
             if let scene = SCNScene(named: "art.scnassets/2FADH2.scn") {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2FADH2"
@@ -224,7 +223,26 @@ extension ViewController: SCNPhysicsContactDelegate {
                 }
             }
             
-            changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
+            disappearGuidanceLabel()
+        }
+        
+        if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
+            for child in myNode.childNodes {
+                targetNode.addChildNode(child)
+            }
+            myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
+            
+            /// flag to inform DO process already done
+            if !doDone {
+                changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Dekarboksilasi")
+                print("Ganti ke DO")
+                doDone = true
+            }
+            else if machineState == 2 {
+                changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Kreb")
+                print("Ganti ke Krebs")
+            }
+            
         }
     }
     
@@ -235,7 +253,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             
         case BodyType.DOMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Dekarboksilasi")
-        
+            
         case BodyType.SKMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Krebs")
             
@@ -276,8 +294,8 @@ extension ViewController: SCNPhysicsContactDelegate {
         switch contact.nodeA.physicsBody?.categoryBitMask {
         
         case BodyType.Input.rawValue, BodyType.Result.rawValue, BodyType.Storage.rawValue, BodyType.Packaging.rawValue, BodyType.SKMachine.rawValue, BodyType.TEMachine.rawValue:
-                contactNode = contact.nodeB
-                attackerNode = contact.nodeA
+            contactNode = contact.nodeB
+            attackerNode = contact.nodeA
             
         default:
             contactNode = contact.nodeA
@@ -292,7 +310,7 @@ extension ViewController: SCNPhysicsContactDelegate {
             child.runAction(removeAction)
         }
     }
-
+    
     var removeAction: SCNAction {
         return .sequence([.wait(duration: 1.5), .fadeOut(duration: 1.0), .removeFromParentNode()])
     }
@@ -308,5 +326,5 @@ extension ViewController: SCNPhysicsContactDelegate {
         node.physicsBody?.isAffectedByGravity = false
         node.physicsBody?.categoryBitMask = category
     }
-
+    
 }
