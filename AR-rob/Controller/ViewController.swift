@@ -19,6 +19,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var lastNode: SCNNode!
     var skDone: Bool = false
     
+    var firstNode : SCNNode!
+    
+    //komponen Glikolisis
+    var planeNodeGlucose: SCNNode!
+    var glucoseMachineScene: SCNScene!
+    var glucoseMachine: SCNNode!
+    var glucoseSphere: SCNNode!
+    
+    //komponen DO
+    var planeNodeDO: SCNNode!
+    var doMachineScene: SCNScene!
+    var doMachine: SCNNode!
+    var doSphere: SCNNode!
+    
+    //komponenKerbs
+    var planeNodeKrebs: SCNNode!
+    var krebsMachineScene: SCNScene!
+    var krebsMachine: SCNNode!
+    var krebsSphere: SCNNode!
+    
+    //komponenTE
+    var planeNodeTE: SCNNode!
+    var teMachineScene: SCNScene!
+    var teMachine: SCNNode!
+    var teSphere: SCNNode!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,18 +94,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "inputCard" {
-                
+            if imageAnchor.referenceImage.name == "input" {
                 let planeNodeGlucose = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
                 if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {
-                    
                     if let glucoseNode = glucoseScene.rootNode.childNodes.first {
                         glucoseNode.name = "glucose"
-                        glucoseNode.eulerAngles.x = .pi/4
+                        //glucoseNode.eulerAngles.x = .pi/4
                         glucoseNode.position = SCNVector3(0, 0, 0)
                         planeNodeGlucose.addChildNode(glucoseNode)
-                        
+                        let scaleAction = SCNAction.scale(by: 1.1, duration: 1)
+                        let scaleShrink = SCNAction.scale(by: 0.9, duration: 1)
+                        let beatAction = SCNAction.sequence([scaleAction,scaleShrink])
+                        let beatForever = SCNAction.repeatForever(beatAction)
+                        glucoseNode.runAction(beatForever)
+                        let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                        let rotateForever = SCNAction.repeatForever(rotateAction)
+                        glucoseNode.runAction(rotateForever)
                         node.addChildNode(planeNodeGlucose)
                     }
                 }
@@ -87,22 +118,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if imageAnchor.referenceImage.name == "engineGlikolisisCard"{
                 
-                let planeNodeMdri = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeMdri, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-                
-                let sphere = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
-                sphere.firstMaterial?.diffuse.contents = UIColor.blue
-                
-                let sphereNode = SCNNode(geometry: sphere)
-                sphereNode.position = SCNVector3(0, 0, 0.03)
-                sphereNode.name = "glucoseMachine"
-                sphereNode.eulerAngles.x = .pi/4
-                planeNodeMdri.addChildNode(sphereNode)
-                
-                node.addChildNode(planeNodeMdri)
+                planeNodeGlucose = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeGlucose, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
+                glucoseMachineScene = SCNScene(named: "art.scnassets/mesinStatic1.scn")
+                glucoseMachine = glucoseMachineScene.rootNode.childNodes.first
+                glucoseMachine.name = "glucose"
+                glucoseMachine.position = SCNVector3(0, 0, 0)
+                planeNodeGlucose.addChildNode(glucoseMachine)
+                node.addChildNode(planeNodeGlucose)
             }
             
-            if imageAnchor.referenceImage.name == "mdri" {
+            if imageAnchor.referenceImage.name == "hasil" {
                 
                 let planeNodeHasil = generatePlane(imageAnchor)
                 setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
@@ -131,57 +157,40 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             if imageAnchor.referenceImage.name == "engineDOCard" {
-                let planeNodeDO = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeDO, name: "mesinDO", category: BodyType.DOMachine.rawValue)
                 
-                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
-                cube.firstMaterial?.diffuse.contents = UIColor.blue
-                
-                let sphereNode = SCNNode(geometry: cube)
-                sphereNode.position = SCNVector3(0, 0, 0.03)
-                sphereNode.name = "mesinDO"
-                sphereNode.eulerAngles.x = .pi/4
-                planeNodeDO.addChildNode(sphereNode)
-                
+                planeNodeDO = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeDO, name: "doMachine", category: BodyType.DOMachine.rawValue)
+                doMachineScene = SCNScene(named: "art.scnassets/mesinStatic3.scn")
+                doMachine = doMachineScene.rootNode.childNodes.first
+                doMachine.name = "glucose"
+                doMachine.position = SCNVector3(0, 0, 0)
+                planeNodeDO.addChildNode(doMachine)
                 node.addChildNode(planeNodeDO)
                 
             }
             
             if imageAnchor.referenceImage.name == "engineKrebCard" {
-                let planeNodeSK = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeSK, name: "mesinSK", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
-                
-                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
-                cube.firstMaterial?.diffuse.contents = UIColor.blue
-                
-                let sphereNode = SCNNode(geometry: cube)
-                sphereNode.position = SCNVector3(0, 0, 0.03)
-                sphereNode.name = "mesinSK"
-                sphereNode.eulerAngles.x = .pi/4
-                planeNodeSK.addChildNode(sphereNode)
-                
-                node.addChildNode(planeNodeSK)
-                
+                planeNodeKrebs = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeKrebs, name: "krebsMachine", category: BodyType.SKMachine.rawValue)
+                krebsMachineScene = SCNScene(named: "art.scnassets/mesinStatic2.scn")
+                krebsMachine = krebsMachineScene.rootNode.childNodes.first
+                krebsMachine.name = "glucose"
+                krebsMachine.position = SCNVector3(0, 0, 0)
+                planeNodeKrebs.addChildNode(krebsMachine)
+                node.addChildNode(planeNodeKrebs)
             }
             
             if imageAnchor.referenceImage.name == "engineTECard" {
-                let planeNodeTE = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeTE, name: "mesinTE", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
-                let cube = SCNBox(width: 0.05, height: 0.02, length: 0.05, chamferRadius: 0)
-                cube.firstMaterial?.diffuse.contents = UIColor.blue
-                
-                let sphereNode = SCNNode(geometry: cube)
-                sphereNode.position = SCNVector3(0, 0, 0.03)
-                sphereNode.name = "mesinTE"
-                sphereNode.eulerAngles.x = .pi/4
-                planeNodeTE.addChildNode(sphereNode)
-                
+                planeNodeTE = generatePlane(imageAnchor)
+                setBasicPhysics(node: planeNodeTE, name: "krebsMachine", category: BodyType.SKMachine.rawValue)
+                teMachineScene = SCNScene(named: "art.scnassets/mesinStatic4.scn")
+                teMachine = teMachineScene.rootNode.childNodes.first
+                teMachine.name = "te"
+                teMachine.position = SCNVector3(0, 0, 0)
+                planeNodeTE.addChildNode(teMachine)
                 node.addChildNode(planeNodeTE)
-                
             }
-            
         }
-        
         return node
     }
     
@@ -217,5 +226,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         planeNode.position = SCNVector3(0, 0, -0.015)
         
         return planeNode
+    }
+}
+extension Int{
+    func degreeToRadians() -> CGFloat{
+        return CGFloat(self) * CGFloat.pi / 180.0
     }
 }

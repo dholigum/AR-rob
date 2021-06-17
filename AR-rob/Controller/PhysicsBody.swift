@@ -30,6 +30,7 @@ extension ViewController: SCNPhysicsContactDelegate {
 
         var contactNode: SCNNode!
         var attackerNode: SCNNode!
+        
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.yellow
         
@@ -37,13 +38,20 @@ extension ViewController: SCNPhysicsContactDelegate {
         let getContact = setContactNode(contact: contact)
         contactNode = getContact.contactNode
         attackerNode = getContact.attackerNode
-        print("\(attackerNode.name!) = \(contactNode.name!)")
         
-        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue {
+        
+//        if self.lastNode != nil && self.lastNode == contactNode && (self.firstNode == attackerNode || self.firstNode == contactNode)  {
+//            print("\(attackerNode.name!) => \(contactNode.name!)")
+//            return
+//        }
+        if self.lastNode != nil && self.lastNode == contactNode && attackerNode.physicsBody?.categoryBitMask != BodyType.Result.rawValue  {
+            print("\(attackerNode.name!) => \(contactNode.name!)")
             return
         }
         
+        print("\(attackerNode.name!) = \(contactNode.name!)")
         self.lastNode = contactNode
+        self.firstNode = attackerNode
         
         switch attackerNode.physicsBody?.categoryBitMask {
         case BodyType.Result.rawValue:
@@ -68,13 +76,14 @@ extension ViewController: SCNPhysicsContactDelegate {
            }
            else {
             
-            machineType(target: lastNode)
+            machineType(target: lastNode, current: attackerNode)
             
             guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
                 return
             }
                 child.geometry?.materials = [material]
-                removeChild(node: attackerNode)
+                //lastNode.removeAction(forKey: "rotateForever")
+                //removeChild(node: attackerNode)
             }
             
         case BodyType.Storage.rawValue:
@@ -119,6 +128,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let piruvateNode = piruvatScene.rootNode.childNodes.first {
                     piruvateNode.name = "piruvat"
                     piruvateNode.position = SCNVector3(-0.03, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    piruvateNode.runAction(rotateForever)
                     myNode.addChildNode(piruvateNode)
                 }
             }
@@ -127,6 +139,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let atpNode = atpScene.rootNode.childNodes.first {
                     atpNode.name = "ATP"
                     atpNode.position = SCNVector3(0, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    atpNode.runAction(rotateForever)
                     myNode.addChildNode(atpNode)
                 }
             }
@@ -138,7 +153,12 @@ extension ViewController: SCNPhysicsContactDelegate {
             let boxNode = SCNNode(geometry: box)
             boxNode.name = "NADH"
             boxNode.position = SCNVector3(0.025, 0, 0)
+            let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+            let rotateForever = SCNAction.repeatForever(rotateAction)
+            boxNode.runAction(rotateForever)
             myNode.addChildNode(boxNode)
+            
+            //targetNode
             
             changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
@@ -148,6 +168,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "koA"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -156,6 +179,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2CO2"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -164,6 +190,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2NADH"
                     sceneNode.position = SCNVector3(-0.025, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 18)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -184,6 +213,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "2FADH2"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 20)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -192,6 +224,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "4CO2"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -200,6 +235,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "6NADH"
                     sceneNode.position = SCNVector3(-0.025, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -212,6 +250,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "6H2O"
                     sceneNode.position = SCNVector3(0.03, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -220,6 +261,9 @@ extension ViewController: SCNPhysicsContactDelegate {
                 if let sceneNode = scene.rootNode.childNodes.first {
                     sceneNode.name = "34ATP"
                     sceneNode.position = SCNVector3(0, 0.03, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    sceneNode.runAction(rotateForever)
                     myNode.addChildNode(sceneNode)
                 }
             }
@@ -228,23 +272,37 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
     }
     
-    func machineType(target: SCNNode) {
+    func machineType(target: SCNNode, current: SCNNode) {
+        
         switch target.physicsBody?.categoryBitMask {
         case BodyType.GlucoseMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Glikolisis")
+            changingMachineStatics(planeNode: planeNodeGlucose, machineScene: &glucoseMachineScene, machineNode: glucoseMachine, assetDir: "art.scnassets/mesinGerak1.scn")
             
         case BodyType.DOMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Dekarboksilasi")
+            changingMachineStatics(planeNode: planeNodeDO, machineScene: &doMachineScene, machineNode: doMachine, assetDir: "art.scnassets/mesinGerak3.scn")
         
         case BodyType.SKMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Krebs")
+            changingMachineStatics(planeNode: planeNodeKrebs, machineScene: &krebsMachineScene, machineNode: krebsMachine, assetDir: "art.scnassets/mesinGerak2.scn")
             
         case BodyType.TEMachine.rawValue:
             changeGuidanceLabel("Dekatkan kartu hasil kebagian kanan kartu mesin Transport Elektron")
+            changingMachineStatics(planeNode: planeNodeTE, machineScene: &teMachineScene, machineNode: teMachine, assetDir: "art.scnassets/mesinGerak4.scn")
             
         default:
             changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Glikolisis")
         }
+        
+        
+        
+//        print("TARGETTTTT\(target.name)")
+//        print("TARGETTTTTANAK\(target.childNodes)")
+//        print("CURRR\(current.name)")
+//        print("CURRANAK\(current.childNodes)")
+//        
+        removeChild(node: current)
     }
     
     func moveChilds(node: SCNNode ,isATP: Bool) {
@@ -254,6 +312,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         if isATP {
             for child in lastNode.childNodes {
                 if child.name == "ATP" || child.name == "2CO2" || child.name == "4CO2" {
+                    //child.position = SCNVector3(child.position.x + 0.03, child.position.y, child.position.z)
                     selectedChilds.append(child)
                 }
             }
@@ -261,6 +320,7 @@ extension ViewController: SCNPhysicsContactDelegate {
         else {
             for child in lastNode.childNodes {
                 if child.name != "ATP" && child.name != "piruvat" && child.name != "koA" && child.name != "2CO2"  && child.name != "4CO2"{
+                    //child.position = SCNVector3(child.position.x + 0.03, child.position.y, child.position.z)
                     selectedChilds.append(child)
                 }
             }
@@ -289,6 +349,7 @@ extension ViewController: SCNPhysicsContactDelegate {
     
     func removeChild(node: SCNNode) {
         for child in node.childNodes {
+            
             child.runAction(removeAction)
         }
     }
@@ -307,6 +368,15 @@ extension ViewController: SCNPhysicsContactDelegate {
         node.physicsBody = SCNPhysicsBody(type: .kinematic, shape: nil)
         node.physicsBody?.isAffectedByGravity = false
         node.physicsBody?.categoryBitMask = category
+    }
+    
+    func changingMachineStatics(planeNode: SCNNode, machineScene: inout SCNScene, machineNode: SCNNode, assetDir: String){
+        
+        machineScene = SCNScene(named: assetDir)!
+        let gerakMachine = machineScene.rootNode.childNodes.first
+        gerakMachine?.name = "gerakMachine"
+        gerakMachine?.position = SCNVector3(0, 0, 0)
+        planeNode.replaceChildNode(machineNode, with: gerakMachine ?? machineNode)
     }
 
 }
