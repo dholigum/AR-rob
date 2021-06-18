@@ -20,7 +20,7 @@ class InstructionViewController: UIViewController, URLSessionDelegate {
         super.viewDidLoad()
 
         
-        printBtn.layer.cornerRadius = 10
+        printBtn.layer.cornerRadius = 23
         
         let isNotFirstApp = UserDefaults.standard.bool(forKey: "isNotFirstApp")
         
