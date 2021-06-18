@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-07-dnK">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-07-dnK">
                                 <rect key="frame" x="0.0" y="166" width="390" height="571"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.92941176469999998" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dfl-sO-kYq">
                                     <size key="itemSize" width="353" height="554"/>
@@ -28,23 +27,26 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cheat Sheet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtP-Sp-bdk">
-                                <rect key="frame" x="109" y="68" width="173.66666666666669" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheat Sheet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtP-Sp-bdk">
+                                <rect key="frame" x="108" y="68" width="174" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.54509803921568623" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Belajar kunci-kunci penting yang dibutuhkan untuk mengerti tentang Respirasi Aerob pada Metabolisme! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz5-zS-MUf">
-                                <rect key="frame" x="31" y="112" width="329" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belajar kunci-kunci penting yang dibutuhkan untuk mengerti tentang Respirasi Aerob pada Metabolisme! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz5-zS-MUf">
+                                <rect key="frame" x="31" y="112" width="328" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="kUq-QZ-3qp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.5450980392" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRo-Fv-gNm">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRo-Fv-gNm">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pvg-XH-Skz"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.90196078430000004" green="0.92941176469999998" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="HwZ-s5-wC0">
@@ -60,6 +62,24 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.92941176470588238" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="112" id="0sh-76-xb0"/>
+                            <constraint firstItem="rtP-Sp-bdk" firstAttribute="top" secondItem="wRo-Fv-gNm" secondAttribute="bottom" constant="24" id="1cR-YV-9XW"/>
+                            <constraint firstItem="wRo-Fv-gNm" firstAttribute="leading" secondItem="Wft-07-dnK" secondAttribute="leading" id="5qP-F9-bX5"/>
+                            <constraint firstItem="wRo-Fv-gNm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9vZ-TP-71U"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Wft-07-dnK" secondAttribute="bottom" constant="19" id="AiR-sQ-Vc5"/>
+                            <constraint firstItem="Wft-07-dnK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gcy-TM-509"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="centerX" secondItem="Wft-07-dnK" secondAttribute="centerX" id="NTh-L0-PeL"/>
+                            <constraint firstItem="Wft-07-dnK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PXK-Ch-2ym"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="centerX" secondItem="wRo-Fv-gNm" secondAttribute="centerX" id="Pfr-mw-P4T"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rtP-Sp-bdk" secondAttribute="trailing" constant="108" id="Tjy-El-5d5"/>
+                            <constraint firstItem="rtP-Sp-bdk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="108" id="cHy-vo-Drj"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="top" secondItem="rtP-Sp-bdk" secondAttribute="bottom" constant="8" id="lUi-Gp-GA9"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="centerX" secondItem="rtP-Sp-bdk" secondAttribute="centerX" id="pXo-gY-r90"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="31" id="qFN-xd-wTg"/>
+                            <constraint firstItem="Kz5-zS-MUf" firstAttribute="top" secondItem="rtP-Sp-bdk" secondAttribute="bottom" constant="8" symbolic="YES" id="rkp-iC-j0c"/>
+                            <constraint firstItem="Wft-07-dnK" firstAttribute="top" secondItem="Kz5-zS-MUf" secondAttribute="bottom" constant="5" id="x2J-VS-A0k"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="23A-gi-cFu"/>
                     <connections>
