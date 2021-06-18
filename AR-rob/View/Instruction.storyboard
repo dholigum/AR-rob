@@ -21,7 +21,7 @@
                                 <rect key="frame" x="51" y="245" width="313" height="303"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-tu-5Pd">
-                                <rect key="frame" x="117" y="118" width="226" height="4"/>
+                                <rect key="frame" x="117" y="144" width="226" height="4"/>
                                 <color key="backgroundColor" red="0.72089475390000002" green="0.84843677279999996" blue="0.8084848523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" name="mainColor"/>
                             </progressView>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gB0-0b-EVA">
-                                <rect key="frame" x="133" y="418" width="148" height="32"/>
+                                <rect key="frame" x="133" y="567" width="148" height="43"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="148" id="YuI-HR-o3V"/>
@@ -52,9 +52,10 @@
                                     <action selector="printPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YHN-Ui-mWD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Untuk memulai belajar dengan AR-Rob, harap cetak kartu yang diberikan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-hP-iaI">
-                                <rect key="frame" x="56" y="155" width="302" height="86"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Untuk memulai belajar dengan AR-Rob, harap cetak kartu yang diberikan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-hP-iaI">
+                                <rect key="frame" x="56" y="171" width="302" height="95"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="7RJ-1H-FFL"/>
                                     <constraint firstAttribute="height" constant="95" id="uUd-9N-17x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -118,7 +119,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5H-fK-6f7">
-                                <rect key="frame" x="303" y="500" width="93" height="22"/>
+                                <rect key="frame" x="303" y="653" width="93" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="tintColor" name="mainColor"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -181,7 +182,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiE-pd-ZqR">
-                                <rect key="frame" x="242" y="501" width="154" height="21"/>
+                                <rect key="frame" x="242" y="655" width="154" height="27"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="tintColor" name="mainColor"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
