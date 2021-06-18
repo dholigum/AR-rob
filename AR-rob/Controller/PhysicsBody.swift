@@ -408,6 +408,9 @@ extension ViewController: SCNPhysicsContactDelegate {
             if let atpNode = atpScene.rootNode.childNodes.first {
                 atpNode.name = "38ATP"
                 atpNode.position = SCNVector3(0, 0.04, 0)
+                let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
+                let rotateForever = SCNAction.repeatForever(rotateAction)
+                atpNode.runAction(rotateForever)
                 firstNode.addChildNode(atpNode)
             }
         }
