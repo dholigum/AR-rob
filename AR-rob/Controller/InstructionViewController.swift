@@ -67,7 +67,7 @@ class InstructionViewController: UIViewController, URLSessionDelegate {
     @IBAction func printPressed(_ sender: Any) {
         
         //MARK: BUAT NGEPRINT
-        if let url = URL(string: "https://www.dropbox.com/s/nh3foebwh09d5sx/cards.pdf?dl=1") {
+        if let url = URL(string: "https://www.dropbox.com/s/bo4lgv5dp07suoa/Cards%20Pattern%20FINAL%20PALING%20NEW.pdf?dl=1") {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
 
