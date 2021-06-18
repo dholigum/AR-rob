@@ -18,7 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var lastNode: SCNNode!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+        return .portrait
     }
     
     override func viewDidLoad() {

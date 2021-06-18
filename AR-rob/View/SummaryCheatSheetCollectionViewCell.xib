@@ -53,9 +53,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPi-sM-Ecs">
-                                <rect key="frame" x="31" y="418" width="294" height="48"/>
+                                <rect key="frame" x="31" y="418" width="294" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="2pE-bD-8sr"/>
+                                    <constraint firstAttribute="height" constant="54" id="2pE-bD-8sr"/>
                                     <constraint firstAttribute="width" constant="294" id="547-hk-Ybz"/>
                                 </constraints>
                                 <string key="text">Sehingga, hasil akhir dari respirasi aerob adalah
@@ -68,7 +68,7 @@ C6H12O6 + 6 O2 -&gt; 6 CO2 +6 H2O + 36ATP.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="H14-Qs-oFI" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="1Pq-OY-e8r"/>
-                            <constraint firstAttribute="bottom" secondItem="UPi-sM-Ecs" secondAttribute="bottom" constant="81" id="CiP-AC-Pmo"/>
+                            <constraint firstAttribute="bottom" secondItem="UPi-sM-Ecs" secondAttribute="bottom" constant="75" id="CiP-AC-Pmo"/>
                             <constraint firstItem="H14-Qs-oFI" firstAttribute="leading" secondItem="qvo-bi-ccM" secondAttribute="leading" id="FsA-v9-1FG"/>
                             <constraint firstItem="qvo-bi-ccM" firstAttribute="centerX" secondItem="d50-2W-PD2" secondAttribute="centerX" id="GP4-8e-HBW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bOb-2L-FM6" secondAttribute="trailing" constant="23" id="Gdm-Lf-meX"/>
