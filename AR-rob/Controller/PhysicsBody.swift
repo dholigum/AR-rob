@@ -98,6 +98,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                     let newCO = COScene?.rootNode.childNodes.first
                     newCO?.name = "6CO2"
                     newCO?.position = SCNVector3(-0.03, 0.01, 0)
+                    newCO?.runAction(getRotate())
                     attackerNode.replaceChildNode(child, with: newCO!)
                     child.removeFromParentNode()
                 }
@@ -416,5 +417,9 @@ extension ViewController: SCNPhysicsContactDelegate {
         }
         changeGuidanceLabel("Lihat hasil akhir respirasi aerob pada kartu packaging")
     }
-
+    func getRotate() -> SCNAction{
+        let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
+        let rotateForever = SCNAction.repeatForever(rotateAction)
+        return rotateForever
+    }
 }

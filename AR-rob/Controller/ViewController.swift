@@ -77,7 +77,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARImageTrackingConfiguration()
         
-        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "Pokemon Cards", bundle: Bundle.main) {
+        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "Arrob Cards", bundle: Bundle.main) {
             
             configuration.trackingImages = imageToTrack
             configuration.maximumNumberOfTrackedImages = 8
