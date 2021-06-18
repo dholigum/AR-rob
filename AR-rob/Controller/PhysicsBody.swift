@@ -75,9 +75,6 @@ extension ViewController: SCNPhysicsContactDelegate {
             
             machineType(target: lastNode, current: attackerNode)
             
-            guard let child = lastNode.childNode(withName: "\(lastNode.name!)", recursively: false) else {
-                return
-            }
            }
             
         case BodyType.Storage.rawValue:
@@ -155,19 +152,16 @@ extension ViewController: SCNPhysicsContactDelegate {
                 }
             }
             
-            let box = SCNBox(width: 0.02, height: 0.02, length: 0.02, chamferRadius: 0)
-            let material = SCNMaterial()
-            material.diffuse.contents = UIColor.purple
-            box.materials = [material]
-            let boxNode = SCNNode(geometry: box)
-            boxNode.name = "NADH"
-            boxNode.position = SCNVector3(0.025, 0, 0)
-            let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
-            let rotateForever = SCNAction.repeatForever(rotateAction)
-            boxNode.runAction(rotateForever)
-            myNode.addChildNode(boxNode)
-            
-            //targetNode
+            if let nadhScene = SCNScene(named: "art.scnassets/2NADH.scn") {
+                if let nadhNode = nadhScene.rootNode.childNodes.first {
+                    nadhNode.name = "2NADH"
+                    nadhNode.position = SCNVector3(0.025, 0, 0)
+                    let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 4)
+                    let rotateForever = SCNAction.repeatForever(rotateAction)
+                    nadhNode.runAction(rotateForever)
+                    myNode.addChildNode(nadhNode)
+                }
+            }
             
             changeGuidanceLabel("Geser kartu hasil dan dekatkan kartu Packaging kebagian kiri")
         }
