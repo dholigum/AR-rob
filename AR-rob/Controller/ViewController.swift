@@ -92,110 +92,110 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        
-        let node = SCNNode()
-        
-        if let imageAnchor = anchor as? ARImageAnchor {
             
-            if imageAnchor.referenceImage.name == "glucose" {
-                let planeNodeGlucose = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
-                if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {
-                    if let glucoseNode = glucoseScene.rootNode.childNodes.first {
-                        glucoseNode.name = "glucose"
-                        //glucoseNode.eulerAngles.x = .pi/4
-                        glucoseNode.position = SCNVector3(0, 0, 0)
-                        planeNodeGlucose.addChildNode(glucoseNode)
-                        let scaleAction = SCNAction.scale(by: 1.1, duration: 1)
-                        let scaleShrink = SCNAction.scale(by: 0.9, duration: 1)
-                        let beatAction = SCNAction.sequence([scaleAction,scaleShrink])
-                        let beatForever = SCNAction.repeatForever(beatAction)
-                        glucoseNode.runAction(beatForever)
-                        let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
-                        let rotateForever = SCNAction.repeatForever(rotateAction)
-                        glucoseNode.runAction(rotateForever)
-                        node.addChildNode(planeNodeGlucose)
+            let node = SCNNode()
+            
+            if let imageAnchor = anchor as? ARImageAnchor {
+                
+                if imageAnchor.referenceImage.name == "input" {
+                    let planeNodeGlucose = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
+                    if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {
+                        if let glucoseNode = glucoseScene.rootNode.childNodes.first {
+                            glucoseNode.name = "glucose"
+                            //glucoseNode.eulerAngles.x = .pi/4
+                            glucoseNode.position = SCNVector3(0, 0, 0)
+                            planeNodeGlucose.addChildNode(glucoseNode)
+                            let scaleAction = SCNAction.scale(by: 1.1, duration: 1)
+                            let scaleShrink = SCNAction.scale(by: 0.9, duration: 1)
+                            let beatAction = SCNAction.sequence([scaleAction,scaleShrink])
+                            let beatForever = SCNAction.repeatForever(beatAction)
+                            glucoseNode.runAction(beatForever)
+                            let rotateAction = SCNAction.rotate(by: 360.degreeToRadians(), around: SCNVector3(0, 1, 0), duration: 8)
+                            let rotateForever = SCNAction.repeatForever(rotateAction)
+                            glucoseNode.runAction(rotateForever)
+                            node.addChildNode(planeNodeGlucose)
+                        }
                     }
                 }
-            }
-            
-            if imageAnchor.referenceImage.name == "mesinGlikolisis"{
                 
-                planeNodeGlucose = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeGlucose, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
-                glucoseMachineScene = SCNScene(named: "art.scnassets/mesinStatic1.scn")
-                glucoseMachine = glucoseMachineScene.rootNode.childNodes.first
-                glucoseMachine.name = "glucose"
-                glucoseMachine.position = SCNVector3(0, 0, 0)
-                planeNodeGlucose.addChildNode(glucoseMachine)
-                node.addChildNode(planeNodeGlucose)
-            }
-            
-            if imageAnchor.referenceImage.name == "eevee" {
+                if imageAnchor.referenceImage.name == "engineGlikolisisCard"{
+                    
+                    planeNodeGlucose = generatePlane(imageAnchor)
+                    setBasicPhysics(node: planeNodeGlucose, name: "glucoseMachine", category: BodyType.GlucoseMachine.rawValue)
+                    glucoseMachineScene = SCNScene(named: "art.scnassets/mesinStatic1.scn")
+                    glucoseMachine = glucoseMachineScene.rootNode.childNodes.first
+                    glucoseMachine.name = "glucose"
+                    glucoseMachine.position = SCNVector3(0, 0, 0)
+                    planeNodeGlucose.addChildNode(glucoseMachine)
+                    node.addChildNode(planeNodeGlucose)
+                }
                 
-                let planeNodeHasil = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
-                let resultNode = createTransparentObject()
-                resultNode.name = "hasil"
-                planeNodeHasil.addChildNode(resultNode)
-                node.addChildNode(planeNodeHasil)
-            }
-            
-            if imageAnchor.referenceImage.name == "storage" {
-                let planeNodeStorage = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeStorage, name: "storage", attacker: BodyType.Storage.rawValue, target: BodyType.Result.rawValue)
-                let storageNode = createTransparentObject()
-                storageNode.name = "storage"
-                planeNodeStorage.addChildNode(storageNode)
-                node.addChildNode(planeNodeStorage)
-            }
-            
-            if imageAnchor.referenceImage.name == "packaging" {
-                let planeNodePackaging = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodePackaging, name: "packaging", attacker: BodyType.Packaging.rawValue, target: BodyType.Result.rawValue)
-                let packagingNode = createTransparentObject()
-                packagingNode.name = "packaging"
-                planeNodePackaging.addChildNode(planeNodePackaging)
-                node.addChildNode(planeNodePackaging)
-            }
-            
-            if imageAnchor.referenceImage.name == "mesinDO" {
+                if imageAnchor.referenceImage.name == "hasil" {
+                    
+                    let planeNodeHasil = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodeHasil, name: "hasil", attacker: BodyType.Result.rawValue, target: BodyType.GlucoseMachine.rawValue)
+                    let resultNode = createTransparentObject()
+                    resultNode.name = "hasil"
+                    planeNodeHasil.addChildNode(resultNode)
+                    node.addChildNode(planeNodeHasil)
+                }
                 
-                planeNodeDO = generatePlane(imageAnchor)
-                setBasicPhysics(node: planeNodeDO, name: "doMachine", category: BodyType.DOMachine.rawValue)
-                doMachineScene = SCNScene(named: "art.scnassets/mesinStatic3.scn")
-                doMachine = doMachineScene.rootNode.childNodes.first
-                doMachine.name = "glucose"
-                doMachine.position = SCNVector3(0, 0, 0)
-                planeNodeDO.addChildNode(doMachine)
-                node.addChildNode(planeNodeDO)
+                if imageAnchor.referenceImage.name == "storageCard" {
+                    let planeNodeStorage = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodeStorage, name: "storage", attacker: BodyType.Storage.rawValue, target: BodyType.Result.rawValue)
+                    let storageNode = createTransparentObject()
+                    storageNode.name = "storage"
+                    planeNodeStorage.addChildNode(storageNode)
+                    node.addChildNode(planeNodeStorage)
+                }
                 
+                if imageAnchor.referenceImage.name == "packagingCard" {
+                    let planeNodePackaging = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodePackaging, name: "packaging", attacker: BodyType.Packaging.rawValue, target: BodyType.Result.rawValue)
+                    let packagingNode = createTransparentObject()
+                    packagingNode.name = "packaging"
+                    planeNodePackaging.addChildNode(planeNodePackaging)
+                    node.addChildNode(planeNodePackaging)
+                }
+                
+                if imageAnchor.referenceImage.name == "engineDOCard" {
+                    
+                    planeNodeDO = generatePlane(imageAnchor)
+                    setBasicPhysics(node: planeNodeDO, name: "doMachine", category: BodyType.DOMachine.rawValue)
+                    doMachineScene = SCNScene(named: "art.scnassets/mesinStatic3.scn")
+                    doMachine = doMachineScene.rootNode.childNodes.first
+                    doMachine.name = "glucose"
+                    doMachine.position = SCNVector3(0, 0, 0)
+                    planeNodeDO.addChildNode(doMachine)
+                    node.addChildNode(planeNodeDO)
+                    
+                }
+                
+                if imageAnchor.referenceImage.name == "engineKrebCard" {
+                    planeNodeKrebs = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodeKrebs, name: "krebsMachine", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
+                    krebsMachineScene = SCNScene(named: "art.scnassets/mesinStatic2.scn")
+                    krebsMachine = krebsMachineScene.rootNode.childNodes.first
+                    krebsMachine.name = "glucose"
+                    krebsMachine.position = SCNVector3(0, 0, 0)
+                    planeNodeKrebs.addChildNode(krebsMachine)
+                    node.addChildNode(planeNodeKrebs)
+                }
+                
+                if imageAnchor.referenceImage.name == "engineTECard" {
+                    planeNodeTE = generatePlane(imageAnchor)
+                    setAttackerPhysics(node: planeNodeTE, name: "teMachine", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
+                    teMachineScene = SCNScene(named: "art.scnassets/mesinStatic4.scn")
+                    teMachine = teMachineScene.rootNode.childNodes.first
+                    teMachine.name = "te"
+                    teMachine.position = SCNVector3(0, 0, 0)
+                    planeNodeTE.addChildNode(teMachine)
+                    node.addChildNode(planeNodeTE)
+                }
             }
-            
-            if imageAnchor.referenceImage.name == "mesinSK" {
-                planeNodeKrebs = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeKrebs, name: "krebsMachine", attacker: BodyType.SKMachine.rawValue, target: BodyType.Result.rawValue)
-                krebsMachineScene = SCNScene(named: "art.scnassets/mesinStatic2.scn")
-                krebsMachine = krebsMachineScene.rootNode.childNodes.first
-                krebsMachine.name = "glucose"
-                krebsMachine.position = SCNVector3(0, 0, 0)
-                planeNodeKrebs.addChildNode(krebsMachine)
-                node.addChildNode(planeNodeKrebs)
-            }
-            
-            if imageAnchor.referenceImage.name == "mesinTE" {
-                planeNodeTE = generatePlane(imageAnchor)
-                setAttackerPhysics(node: planeNodeTE, name: "teMachine", attacker: BodyType.TEMachine.rawValue, target: BodyType.Result.rawValue)
-                teMachineScene = SCNScene(named: "art.scnassets/mesinStatic4.scn")
-                teMachine = teMachineScene.rootNode.childNodes.first
-                teMachine.name = "te"
-                teMachine.position = SCNVector3(0, 0, 0)
-                planeNodeTE.addChildNode(teMachine)
-                node.addChildNode(planeNodeTE)
-            }
+            return node
         }
-        return node
-    }
     
     func createTransparentObject() -> SCNNode{
         let box = SCNBox(width: 0.03, height: 0.03, length: 0.03, chamferRadius: 0)
