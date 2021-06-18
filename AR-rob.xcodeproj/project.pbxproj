@@ -27,6 +27,7 @@
 		2F96435E266F198D005D9B32 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F96435D266F198D005D9B32 /* Instruction.storyboard */; };
 		2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99AFB12670654B00A58773 /* ThemeHelper.swift */; };
 		D20B39CC26784BDC00DB4F33 /* cards.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D20B39CB26784BDC00DB4F33 /* cards.pdf */; };
+		2FF801CD267859DE00D2BE9F /* GuidanceText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF801CC267859DE00D2BE9F /* GuidanceText.swift */; };
 		D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */; };
 		D267F2352671C93C00A71F9A /* Instruction3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */; };
 		F7F092C62670C193003B442F /* PhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F092C52670C193003B442F /* PhysicsBody.swift */; };
@@ -55,6 +56,7 @@
 		2F96435D266F198D005D9B32 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		2F99AFB12670654B00A58773 /* ThemeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHelper.swift; sourceTree = "<group>"; };
 		D20B39CB26784BDC00DB4F33 /* cards.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cards.pdf; sourceTree = "<group>"; };
+		2FF801CC267859DE00D2BE9F /* GuidanceText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceText.swift; sourceTree = "<group>"; };
 		D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction2ViewController.swift; sourceTree = "<group>"; };
 		D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction3ViewController.swift; sourceTree = "<group>"; };
 		F7F092C52670C193003B442F /* PhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBody.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				D267F2322671C8D300A71F9A /* Instruction2ViewController.swift */,
 				D267F2342671C93C00A71F9A /* Instruction3ViewController.swift */,
 				19B0B4712671C0CC001C81BA /* CheatSheetViewController.swift */,
+				2FF801CC267859DE00D2BE9F /* GuidanceText.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				2F99AFB22670654B00A58773 /* ThemeHelper.swift in Sources */,
 				D267F2332671C8D300A71F9A /* Instruction2ViewController.swift in Sources */,
 				2F54C305266F28E000F10A62 /* InstructionViewController.swift in Sources */,
+				2FF801CD267859DE00D2BE9F /* GuidanceText.swift in Sources */,
 				19B0B46E2671AD58001C81BA /* CheatSheetMaterial.swift in Sources */,
 				19E492B1267311DA00C6AF57 /* UICustom.swift in Sources */,
 				19B0B4722671C0CC001C81BA /* CheatSheetViewController.swift in Sources */,

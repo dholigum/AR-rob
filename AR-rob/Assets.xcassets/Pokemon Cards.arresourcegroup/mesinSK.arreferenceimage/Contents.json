@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Mesin krebs.png",
+      "filename" : "mesinSK.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "centimeters",
-    "width" : 7.0050541516245488
+    "width" : 7.0462633451957304
   }
 }

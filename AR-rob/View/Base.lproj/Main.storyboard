@@ -32,8 +32,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnG-ba-qKY">
                                 <rect key="frame" x="83" y="281" width="678" height="48"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point your camera to the Glikolisis card and hover the result card next to it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBW-da-uKa">
-                                        <rect key="frame" x="8" y="3" width="662" height="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dekatkan kartu Input kebagian kiri kartu mesin Glikolisis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBW-da-uKa">
+                                        <rect key="frame" x="8" y="3" width="296" height="41"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -81,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="SW3-a4-q5G" id="XQN-Nb-clQ"/>
+                        <outlet property="guidanceLabel" destination="YBW-da-uKa" id="hKb-vb-V8A"/>
                         <outlet property="guidanceView" destination="tnG-ba-qKY" id="r1L-UC-mWw"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
