@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "storage.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "centimeters",
+    "width" : 6.9312080536912752
+  }
+}
