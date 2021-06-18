@@ -280,12 +280,12 @@ extension ViewController: SCNPhysicsContactDelegate {
             /// flag to inform DO process already done
             if !doDone {
                 changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Dekarboksilasi")
-                print("Ganti ke DO")
-                doDone = true
             }
             else if machineState == 2 {
                 changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Kreb")
-                print("Ganti ke Krebs")
+            }
+            else if machineState == 4 {
+                changeGuidanceLabel("Dekatkan kartu hasil ke bagian kanan kartu packaging")
             }
             
         }
@@ -414,6 +414,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 firstNode.addChildNode(atpNode)
             }
         }
+        changeGuidanceLabel("Lihat hasil akhir respirasi aerob pada kartu packaging")
     }
 
 }
