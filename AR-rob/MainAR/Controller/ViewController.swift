@@ -101,7 +101,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             if let imageAnchor = anchor as? ARImageAnchor {
                 
-                if imageAnchor.referenceImage.name == "input" {
+                if imageAnchor.referenceImage.name == "input-2" {
                     let planeNodeGlucose = generatePlane(imageAnchor)
                     setAttackerPhysics(node: planeNodeGlucose, name: "glucose", attacker: BodyType.Input.rawValue, target: BodyType.GlucoseMachine.rawValue)
                     if let glucoseScene = SCNScene(named: "art.scnassets/glukosa.scn") {

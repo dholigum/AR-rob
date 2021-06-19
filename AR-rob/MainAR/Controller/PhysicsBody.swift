@@ -131,6 +131,8 @@ extension ViewController: SCNPhysicsContactDelegate {
     func attackMachine(myNode: SCNNode, targetNode: SCNNode) {
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.GlucoseMachine.rawValue {
+            machineState = 1
+            
             if let piruvatScene = SCNScene(named: "art.scnassets/piruvat.scn") {
                 if let piruvateNode = piruvatScene.rootNode.childNodes.first {
                     piruvateNode.name = "piruvat"
@@ -278,17 +280,12 @@ extension ViewController: SCNPhysicsContactDelegate {
             }
             myNode.physicsBody?.contactTestBitMask = BodyType.DOMachine.rawValue
             
-            /// flag to inform DO process already done
-            if !doDone {
+            if machineState == 1 {
                 changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Dekarboksilasi")
             }
             else if machineState == 2 {
                 changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Kreb")
             }
-//            else if machineState == 4 {
-//                changeGuidanceLabel("Dekatkan kartu hasil ke bagian kanan kartu packaging")
-//            }
-            
         }
     }
     
