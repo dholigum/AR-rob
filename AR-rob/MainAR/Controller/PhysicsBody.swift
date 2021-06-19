@@ -269,7 +269,7 @@ extension ViewController: SCNPhysicsContactDelegate {
                 }
             }
             
-            disappearGuidanceLabel()
+            changeGuidanceLabel("Dekatkan kartu Hasil ke bagian kanan kartu Packaging")
         }
         
         if targetNode.physicsBody?.categoryBitMask == BodyType.Input.rawValue {
@@ -285,9 +285,9 @@ extension ViewController: SCNPhysicsContactDelegate {
             else if machineState == 2 {
                 changeGuidanceLabel("Dekatkan kartu Input kebagian kiri kartu mesin Kreb")
             }
-            else if machineState == 4 {
-                changeGuidanceLabel("Dekatkan kartu hasil ke bagian kanan kartu packaging")
-            }
+//            else if machineState == 4 {
+//                changeGuidanceLabel("Dekatkan kartu hasil ke bagian kanan kartu packaging")
+//            }
             
         }
     }
